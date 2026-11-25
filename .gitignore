@@ -1,0 +1,8 @@
+# Só a casca do site vai para o GitHub. Dados ficam no Supabase.
+*.xlsx
+*.xlsm
+*.csv
+USUARIOS*
+SUPABASE_SERVICE_KEY*
+SAIDA/
+PAINEL_ENGENHARIA_*.html
