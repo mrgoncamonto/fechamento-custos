@@ -1,5 +1,7 @@
 # Painel de Resultado da Engenharia
 
+Endereço: https://fechamento-custos.netlify.app
+
 Site estático (Netlify) + login e dados no Supabase (projeto "Fechamento de Custos" xklijhajhuzkhkymojai, tabelas painel_*).
 O site não contém números: os dados só chegam depois do login, conforme o perfil (admin ou leitura).
 

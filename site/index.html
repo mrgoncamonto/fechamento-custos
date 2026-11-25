@@ -32,6 +32,13 @@ button:disabled{opacity:.6;cursor:wait}.msg{min-height:20px;margin-top:10px;font
     <button id="bn" type="button">Salvar senha</button>
     <button type="button" class="lnk" id="cancNova">Voltar</button>
   </div>
+  <div id="vCarga" hidden>
+    <div style="font-size:14px;margin-bottom:6px"><b>Carregar fechamento</b></div>
+    <div class="sub" style="margin-bottom:10px">Escolha o arquivo PAINEL_ENGENHARIA_AAAAMM.html gerado pelo motor (pasta SAIDA). Ele vira o mês publicado para todos.</div>
+    <input id="arq" type="file" accept=".html,.htm">
+    <button id="bc" type="button">Publicar este fechamento</button>
+    <button type="button" class="lnk" id="cancCarga">Voltar ao painel</button>
+  </div>
   <div class="msg" id="m" role="alert"></div>
   <div class="foot">Conteúdo confidencial da Monto Industrial. Uso interno.</div>
 </form>
@@ -41,13 +48,14 @@ button:disabled{opacity:.6;cursor:wait}.msg{min-height:20px;margin-top:10px;font
 const URL_SB='https://xklijhajhuzkhkymojai.supabase.co', KEY='sb_publishable_G3ISbcBK71pdBUlqTsfNMA_xCgICduR';
 const sb=window.supabase.createClient(URL_SB,KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
 const $=id=>document.getElementById(id), msg=(t,ok)=>{$('m').textContent=t||'';$('m').className='msg'+(ok?' ok':'')};
-const tela=v=>{$('f').hidden=false;$('vLogin').hidden=v!=='login';$('vNova').hidden=v!=='nova';msg('');(v==='login'?$('e'):$('n1')).focus()};
+const tela=v=>{$('f').hidden=false;$('vLogin').hidden=v!=='login';$('vNova').hidden=v!=='nova';$('vCarga').hidden=v!=='carga';msg('');if(v!=='carga')(v==='login'?$('e'):$('n1')).focus()};
 let carregando=false;
 async function abrirPainel(){
   if(carregando)return;carregando=true;
   const {data:{session}}=await sb.auth.getSession();if(!session){carregando=false;return tela('login')}
   $('f').hidden=false;$('vLogin').hidden=true;msg('Carregando o painel…',true);
   const [{data:per},{data:rows,error}]=await Promise.all([sb.rpc('painel_perfil'),sb.from('painel_dados').select('ref,perfil,dados').order('ref',{ascending:false}).limit(2)]);
+  if(per==='admin'&&(sessionStorage.getItem('pe_carga')||(!error&&rows&&!rows.length))){carregando=false;return tela('carga')}
   if(error||!per||!rows||!rows.length){carregando=false;$('vLogin').hidden=false;
     msg(per?'Nenhum fechamento publicado ainda.':'Seu e-mail não tem acesso a este painel. Fale com o Matheus (Custos).');await sb.auth.signOut();return}
   const ref=rows[0].ref,row=rows.find(r=>r.ref===ref&&r.perfil===per)||rows.find(r=>r.ref===ref);
@@ -63,6 +71,8 @@ async function abrirPainel(){
   document.open();document.write(h);document.close();
   const hd=document.querySelector('header');
   if(hd){hd.style.position='relative';hd.insertAdjacentHTML('beforeend','<div style="position:absolute;top:10px;right:16px;font-size:12px;color:var(--muted)">'+email.replace(/[<>&"]/g,'')+' · <a href="#" id="trocar" style="color:inherit">Trocar senha</a> · <a href="#" id="sair" style="color:inherit">Sair</a></div>')}
+  if(row.perfil==='admin'){const sp=document.getElementById('sair');sp.insertAdjacentHTML('beforebegin','<a href="#" id="carga" style="color:inherit">Carregar fechamento</a> · ');
+    document.getElementById('carga').onclick=e=>{e.preventDefault();sessionStorage.setItem('pe_carga','1');location.replace(location.pathname)}}
   document.getElementById('sair').onclick=async e=>{e.preventDefault();await sb.auth.signOut();location.replace(location.pathname)};
   document.getElementById('trocar').onclick=e=>{e.preventDefault();sessionStorage.setItem('pe_nova','1');location.replace(location.pathname)};
 }
@@ -79,6 +89,19 @@ $('bn').onclick=async()=>{const a=$('n1').value,b=$('n2').value;
   $('bn').disabled=true;const {error}=await sb.auth.updateUser({password:a});$('bn').disabled=false;
   if(error)return msg('Não foi possível salvar: '+error.message);
   sessionStorage.removeItem('pe_nova');msg('Senha salva.',true);setTimeout(abrirPainel,600)};
+$('bc').onclick=async()=>{const f=$('arq').files[0];if(!f)return msg('Escolha o arquivo do painel.');
+  $('bc').disabled=true;msg('Lendo o arquivo…',true);
+  try{const h=await f.text();const i=h.indexOf('{"n_idx"');if(i<0)throw new Error('Esse arquivo não é um painel gerado pelo motor.');
+    let dep=0,j=i,str=false,esc=false;for(;j<h.length;j++){const c=h[j];if(str){if(esc)esc=false;else if(c==='\\')esc=true;else if(c==='"')str=false;continue}
+      if(c==='"')str=true;else if(c==='{')dep++;else if(c==='}'){dep--;if(!dep)break}}
+    const d=JSON.parse(h.slice(i,j+1));const ref=d.ref;
+    msg('Publicando '+ref+'…',true);
+    const adm=Object.assign({},d,{modo:'admin'}),lei=Object.assign({},d,{avisos:[],diverg:[],modo:'leitura'});
+    const {error}=await sb.from('painel_dados').upsert([{ref,perfil:'admin',dados:adm},{ref,perfil:'leitura',dados:lei}],{onConflict:'ref,perfil'});
+    if(error)throw new Error(error.message);
+    sessionStorage.removeItem('pe_carga');msg('Fechamento '+ref+' publicado.',true);setTimeout(abrirPainel,700)}
+  catch(e){msg('Não foi possível publicar: '+e.message)}finally{$('bc').disabled=false}};
+$('cancCarga').onclick=()=>{sessionStorage.removeItem('pe_carga');abrirPainel()};
 $('cancNova').onclick=()=>{sessionStorage.removeItem('pe_nova');abrirPainel()};
 sb.auth.onAuthStateChange(ev=>{if(ev==='PASSWORD_RECOVERY'){sessionStorage.setItem('pe_nova','1');tela('nova')}});
 (async()=>{const {data:{session}}=await sb.auth.getSession();
