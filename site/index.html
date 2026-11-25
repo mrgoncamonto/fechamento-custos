@@ -38,7 +38,7 @@ button:disabled{opacity:.6;cursor:wait}.msg{min-height:20px;margin-top:10px;font
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 <script>
 (()=>{
-const URL_SB='https://xklijhajhuzkhkymojai.supabase.co', KEY='COLAR_AQUI_A_PUBLISHABLE_KEY';
+const URL_SB='https://xklijhajhuzkhkymojai.supabase.co', KEY='sb_publishable_G3ISbcBK71pdBUlqTsfNMA_xCgICduR';
 const sb=window.supabase.createClient(URL_SB,KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
 const $=id=>document.getElementById(id), msg=(t,ok)=>{$('m').textContent=t||'';$('m').className='msg'+(ok?' ok':'')};
 const tela=v=>{$('f').hidden=false;$('vLogin').hidden=v!=='login';$('vNova').hidden=v!=='nova';msg('');(v==='login'?$('e'):$('n1')).focus()};
