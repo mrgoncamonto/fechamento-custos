@@ -89,7 +89,7 @@ tr.n1 td{font-weight:500}
 tr.n2 td{font-weight:500}
 tr.n3 td:first-child{padding-left:16px}
 tr.n4 td:first-child{padding-left:32px;color:var(--text2)}
-tr.tot td{font-weight:500;border-top:1px solid var(--text);border-bottom:none}
+tr.tot td{font-weight:500;border-top:1px solid var(--text);border-bottom:none}tr.tot.topo td{border-top:none;border-bottom:1px solid var(--text);font-weight:600}
 .tog{cursor:pointer;user-select:none}
 .tog::before{content:"+ ";color:var(--muted);font-weight:400}
 .tog.open::before{content:"− "}
@@ -193,7 +193,7 @@ table.ed input{width:100%;min-width:70px;box-sizing:border-box}table.ed input.n{
 .tipo{display:inline-block;min-width:18px;text-align:center;font-size:11px;font-weight:700;padding:1px 5px;border-radius:4px;background:var(--acpf);border:1px solid var(--rule);color:var(--text)}
 table.rubt{font-size:12px;border-collapse:collapse;width:100%}table.rubt th{text-align:left;font-weight:600;color:var(--text2);padding:5px 6px;border-bottom:1px solid var(--rule);white-space:normal}table.rubt th.n{text-align:right}
 table.rubt td{padding:4px 6px;border-bottom:1px solid var(--grid);vertical-align:middle}table.rubt td.n{text-align:right;white-space:nowrap}
-table.rubt tr.mae td{font-weight:700;background:var(--acpf)}table.rubt tr.mae.l2 td{background:var(--acp1);color:var(--acpt)}table.rubt tr.mae.l3 td{background:var(--acph);color:var(--text)}
+table.rubt tr.mae td{font-weight:700;background:var(--acpf)}table.rubt tr.mae.l1 td{background:var(--acpm);color:var(--acpt)}table.rubt tr.mae.l2 td{background:var(--acp1);color:var(--acpt)}table.rubt tr.mae.l3 td{background:var(--acph);color:var(--text)}
 table.rubt tr.fil td.rl{cursor:pointer;padding-left:18px}table.rubt tr.fil td.rl:hover{text-decoration:underline}table.rubt tr.fil.open td{background:var(--grid)}
 table.rubt tr.det>td{padding:8px 10px 12px 26px;background:var(--bg)}table.rubt td.muted{text-align:left;font-size:11px;white-space:normal;min-width:180px;max-width:280px}table.rubt td.rl{white-space:normal;min-width:200px}
 .memo{max-height:320px;overflow:auto}details summary{cursor:pointer;font-size:12px;color:var(--text2);margin:6px 0}
@@ -420,6 +420,7 @@ const GL={
  'cen.otimista':['Otimista','Atual com os % de cenário otimista aplicados só sobre o que falta.'],
  'col.ult3':['Últ. 3 meses','Média mensal do incorrido nos 3 últimos meses fechados. Serve de régua para a projeção.'],
  'col.recebido':['Recebido do compartilhado','Parte do custo da OI1053E que vem para esta OI pelo rateio das horas previstas no histograma.'],
+ 'col.enviado':['Enviado às obras (ND)','Custo do compartilhado que sai para as obras por nota de débito interna: as NDs já emitidas mais as projetadas (pelas horas previstas no histograma). Sai negativo. Compare com Incorrido + Projetado da linha 01: a diferença é o que fica no '+D.oi_sh+'.'],
  'col.fonte':['Fonte','De onde vem a projeção da rubrica: automático (histograma e premissas), itens lançados aqui, motor (base Excel) ou sem projeção.'],
  'col.tipo':['Tipo de cálculo','A histograma × salário · B % sobre uma base · C pessoas × valor · D por vaga (Efetivo) · E itens · F itens ligados ao histograma · G contratos de fornecedores · R rateio do compartilhado. Veja a aba "Como cada rubrica é projetada".'],
  'item.contar':['O que contar no histograma','Pessoas no mês: soma das pessoas previstas. Entradas: vagas que começam no mês. Saídas: vagas que terminam. Aniversário de 12 meses: vagas que completam 12, 24… meses (ex.: exame periódico).'],
@@ -549,7 +550,7 @@ function recComp(){
   const ks=ordem.filter(k=>g[k]);let h='<tr><th>Componente</th><th>Reconhecida até '+mesLbl(D.ref)+'</th><th>A reconhecer</th><th>Total</th><th>%</th></tr>';
   const T={r:0,p:0};ks.forEach(k=>{T.r+=g[k].r;T.p+=g[k].p});const tt=T.r+T.p;
   ks.forEach(k=>{const o=g[k];h+=`<tr><td>${k}</td><td>${R(o.r)}</td><td>${R(o.p)}</td><td>${R(o.r+o.p)}</td><td>${tt?P((o.r+o.p)/tt):'–'}</td></tr>`});
-  h+=`<tr class="tot"><td>Receita no término</td><td>${R(T.r)}</td><td>${R(T.p)}</td><td>${R(tt)}</td><td></td></tr>`;
+  h+=`<tr class="tot"><td>Receita total (todas as composições)</td><td>${R(T.r)}</td><td>${R(T.p)}</td><td>${R(tt)}</td><td></td></tr>`;
   document.getElementById('tRecC').innerHTML=h;
   const cor={'Contrato (preço global)':css('--s2'),'PPU (sob demanda)':css('--s5'),'Aditivos':css('--s3'),'Reajustes':css('--s7'),'Eventual':css('--s1')};
   const seg=(partes)=>{const t=partes.reduce((a,p)=>a+Math.max(p[1],0),0)||1;return '<div class="seg">'+partes.filter(p=>p[1]>0).map(p=>{const w=p[1]/t*100;
@@ -661,7 +662,7 @@ function rubricas(){
     <td class="${o.meta?(dv>0?'neg':'pos'):''}">${o.meta?R(dv):'–'}</td><td>${eac?P(o.inc/eac):'–'}</td></tr>`});
   if(mg)h+=`<tr class="n2"><td>Meta global sem abertura por rubrica</td><td>${R(mg)}</td><td></td><td></td><td></td><td></td><td></td></tr>`;
   const eac=T.inc+T.pj,mt=T.meta+mg;
-  h+=`<tr class="tot"><td>TOTAL</td><td>${R(mt)}</td><td>${R(T.inc)}</td><td>${R(T.pj)}</td><td>${R(eac)}</td><td class="${eac>mt?'neg':'pos'}">${R(eac-mt)}</td><td>${eac?P(T.inc/eac):'–'}</td></tr>`;
+  h+=`<tr class="tot"><td>${'01 CUSTO TOTAL'+(SEL===D.oi_sh?' (líquido: já descontadas as NDs enviadas às obras)':'')}</td><td>${R(mt)}</td><td>${R(T.inc)}</td><td>${R(T.pj)}</td><td>${R(eac)}</td><td class="${eac>mt?'neg':'pos'}">${R(eac-mt)}</td><td>${eac?P(T.inc/eac):'–'}</td></tr>`;
   document.getElementById('hintRub').textContent='Gasto, o que falta e a diferença para a meta, por rubrica. Clique para abrir.';
   const t=document.getElementById('tRub');t.innerHTML=h;
   t.querySelectorAll('td.tog').forEach(td=>td.onclick=()=>{const tr=td.parentElement;const k=tr.dataset.k;const open=!td.classList.contains('open');td.classList.toggle('open',open);
@@ -748,13 +749,13 @@ function prevReal(){
     options:{scales:{y:{ticks:{callback:v=>M(v)}}},plugins:{tooltip:{callbacks:{label:c=>c.dataset.label+': R$ '+R(c.raw)}}}}});
   // tabela
   const fr=rows.filter(r=>MES_PVR==='ACUM'||r.MES===MES_PVR);const agg={};
-  const add=(w,k,v)=>{if(v==null)return;const sg=w.split('.');for(let n=2;n<=sg.length;n++){const key=sg.slice(0,n).join('.');const o=agg[key]||(agg[key]={r:0,p:0,np:0,rs:0,h:0});o[k]+=v;if(k==='p')o.np++}};
+  const add=(w,k,v)=>{if(v==null)return;const sg=w.split('.');for(let n=1;n<=sg.length;n++){const key=sg.slice(0,n).join('.');const o=agg[key]||(agg[key]={r:0,p:0,np:0,rs:0,h:0});o[k]+=v;if(k==='p')o.np++}};
   fr.forEach(r=>{add(r.WBS,'r',r.REAL);if(r.PREV_ANTERIOR!=null)add(r.WBS,'p',r.PREV_ANTERIOR);if(!r.RATEIO&&/^01\.01\.0[12]/.test(r.WBS)){add(r.WBS,'rs',r.REAL);add(r.WBS,'h',r.PREV_HISTOGRAMA)}});
   const keys=Object.keys(agg).sort();
   let t='<tr><th>Rubrica</th><th>Realizado</th><th>Previsão anterior</th><th>Real − prev.</th><th>Desvio %</th><th>Sal.+enc. real s/ rateio</th><th>Sal.+enc. histograma</th><th>Real − hist.</th></tr>';
   keys.forEach(k=>{const o=agg[k];const n=k.split('.').length;if(Math.abs(o.r)+Math.abs(o.p)+Math.abs(o.h)<1)return;
-    const hasP=o.np>0,isP=/^01\.01(\.0[12])?/.test(k)&&o.h!==0;const dp=o.r-o.p,dh=o.rs-o.h;const par=k.split('.').slice(0,-1).join('.');const kids=keys.some(z=>z.startsWith(k+'.'));
-    t+=`<tr class="n${n}" data-k="${k}" data-p="${n>2?par:''}" ${n>2?'hidden':''}><td class="${kids?'tog':''}">${k} ${desc[k]||''}</td><td>${R(o.r)}</td><td>${hasP?R(o.p):'–'}</td>
+    const hasP=o.np>0,isP=(k==='01'||/^01\.01(\.0[12])?/.test(k))&&o.h!==0;const dp=o.r-o.p,dh=o.rs-o.h;const par=k.split('.').slice(0,-1).join('.');const kids=keys.some(z=>z.startsWith(k+'.'));
+    t+=`<tr class="${n===1?'tot':'n'+n}" data-k="${k}" data-p="${n>2?par:''}" ${n>2?'hidden':''}><td class="${kids&&n>1?'tog':''}">${k==='01'?'01 CUSTO TOTAL'+(SEL===D.oi_sh?' (líquido: já descontadas as NDs enviadas às obras)':''):k+' '+(desc[k]||'')}</td><td>${R(o.r)}</td><td>${hasP?R(o.p):'–'}</td>
     <td class="${hasP?(dp>0?'neg':'pos'):''}">${hasP?R(dp):'–'}</td><td>${hasP&&o.p?P(dp/Math.abs(o.p)):'–'}</td><td>${isP?R(o.rs):'–'}</td><td>${isP?R(o.h):'–'}</td><td class="${isP?(dh>0?'neg':'pos'):''}">${isP?R(dh):'–'}</td></tr>`});
   const tb=document.getElementById('tPvR');tb.innerHTML=t+(temP?'':'<tr><td colspan="8" class="legend-note" style="text-align:left">A coluna Previsão anterior começa a ser preenchida no próximo fechamento (esta rodada gravou a primeira projeção).</td></tr>');
   tb.querySelectorAll('td.tog').forEach(td=>td.onclick=()=>{const k=td.parentElement.dataset.k;const open=!td.classList.contains('open');td.classList.toggle('open',open);
@@ -797,6 +798,7 @@ const pluginBarVal={id:'barVal',afterDatasetsDraw(ch,_,o){if(!o||!o.fmt)return;c
   ch.getDatasetMeta(0).data.forEach((el,k)=>{const v=ch.data.datasets[0].data[k];if(v==null)return;c.textAlign=v>=0?'left':'right';c.fillText(o.fmt(v),el.x+(v>=0?6:-6),el.y)});c.restore()}};
 Chart.register(pluginMeta,pluginBarVal);
 
+function totTopo(id){const t=document.getElementById(id);if(!t)return;const tot=t.querySelector('tr.tot');if(!tot)return;tot.classList.add('topo');const first=[...t.rows].find(r=>r!==tot&&!r.querySelector('th'));if(first&&first!==tot&&first.compareDocumentPosition(tot)&Node.DOCUMENT_POSITION_FOLLOWING)first.parentNode.insertBefore(tot,first)}
 function render(){
   aplicaEV();
   const ev=D.receita_ev.filter(x=>sel().includes(x.OI)).reduce((a,x)=>a+x.VALOR,0);const w=document.getElementById('evWrap');
@@ -805,6 +807,7 @@ function render(){
   ck.onchange=()=>{EV=ck.checked;try{localStorage.setItem('painelEngEV',EV?'1':'0')}catch(e){};render()};
   filtros();kpis();compOIs();
   if(PG==='cen')cenarios();if(PG==='rec')recComp();if(PG==='cur'){mensal();hh();avanco();rateio()}if(PG==='rub'){rubricas();prevReal()}if(PG==='cen')origem();if(PG==='radar')radar();if(PG==='hist')histograma();if(PG==='proj')telaProj();
+  ['tRub','tRecC','tOrig','tRat','tPvR'].forEach(totTopo);
   document.getElementById('avisos').innerHTML=D.avisos.length?D.avisos.map(a=>'<li>'+a+'</li>').join(''):'<li>Sem avisos.</li>';
   document.getElementById('avCnt').textContent=D.avisos.length;
   const dv=(D.diverg||[]).filter(x=>sel().some(o=>String(x.OI_CC).includes(o)||String(x.OI_HIST||'').includes(o)));
@@ -1239,14 +1242,15 @@ function subRub(el){
   if(SEL==='CONSOLIDADO'){const t={};D.ois.forEach(o=>{let a=0,z=0;CUS0.forEach(c=>{if(c.OI===o&&c.TIPO==='PROJ'&&!c.RATEIO)a+=c.VALOR});CUS1.forEach(c=>{if(c.OI===o&&c.TIPO==='PROJ'&&!c.RATEIO)z+=c.VALOR});t[o]=[a,z,CFG.itens.filter(i=>i.oi===o).length]});
     el.innerHTML='<p class="hint">Escolha uma OI no topo para abrir as rubricas e lançar itens.</p><div class="tbl-wrap"><table class="ed"><tr><th>OI</th><th>Projetado do motor</th><th>Projetado no site</th><th>Diferença</th><th>Itens lançados</th></tr>'+D.ois.map(o=>`<tr><td>${o}</td><td class="n">${R(t[o][0])}</td><td class="n">${R(t[o][1])}</td><td class="n">${R(t[o][1]-t[o][0])}</td><td class="n">${t[o][2]}</td></tr>`).join('')+'</table></div>';return}
   const o=SEL;const ult=[0,1,2].map(i=>addMes(D.ref,-i));const ag={};
-  CUS1.forEach(c=>{if(c.OI!==o)return;const a=ag[c.WBS]||(ag[c.WBS]={inc:0,u3:0,pj:0,rt:0,org:new Set()});if(c.TIPO==='REAL'){a.inc+=c.VALOR;if(ult.includes(c.MES))a.u3+=c.VALOR}else if(c.RATEIO)a.rt+=c.VALOR;else{a.pj+=c.VALOR;a.org.add(c.ORIGEM)}});
+  CUS1.forEach(c=>{if(c.OI!==o)return;const a=ag[c.WBS]||(ag[c.WBS]={inc:0,u3:0,pj:0,rt:0,org:new Set()});if(c.TIPO==='REAL'&&!(o===D.oi_sh&&c.RATEIO)){a.inc+=c.VALOR;if(ult.includes(c.MES))a.u3+=c.VALOR}else if(c.RATEIO)a.rt+=c.VALOR;else{a.pj+=c.VALOR;a.org.add(c.ORIGEM)}});
   const its=w=>CFG.itens.filter(i=>i.oi===o&&i.wbs===w);
   const fonte=w=>{const a=ag[w];if(COMO(w)[0]==='R')return '<span class="badge">automático</span>';const n=its(w).length;const fz=(CFG.rubricas[o+'|'+w]||{}).fonte;if(fz==='ITENS'||fz==='ZERO')return `<span class="badge ok">só itens (${n})</span>`;const mot=a?[...a.org].filter(x=>!ENG.ORIG_AUTO.has(x)&&!x.startsWith('Item: ')):[];if(n)return `<span class="badge ok">${n} ${n>1?'itens':'item'}${mot.length?' + motor':''}</span>`;if(PMAN.some(q=>q.oi===o&&q.wbs===w))return '<span class="badge">manual</span>';
     if(!a||!a.org.size)return a&&Math.abs(a.u3)>1?'<span class="badge neg">sem projeção</span>':'<span class="muted">–</span>';
     const org=[...a.org].filter(x=>!x.startsWith('Item: '));if(org.every(x=>ENG.ORIG_AUTO.has(x)))return '<span class="badge">automático</span>';return `<span class="badge warn" title="${esc(org.join(', '))}">motor: ${esc(org.filter(x=>!ENG.ORIG_AUTO.has(x)).join(', '))}</span>`};
   const sum=(pref,k)=>Object.entries(ag).filter(([w])=>w===pref||w.startsWith(pref+'.')).reduce((s,[,a])=>s+a[k],0);
   let h=`<p class="hint">${o} · todas as rubricas da Radar, linha mãe e filhas. Clique na rubrica para ver a memória de cálculo mês a mês e os itens. <b>+ Item</b> lança um custo (valor × quantidade fixa ou contada no histograma). Por padrão os itens <b>somam</b> à projeção que veio do motor; dentro da rubrica dá para trocar para "usar só os itens".</p>`;
-  h+='<div class="tbl-wrap"><table class="rubt"><tr><th>Rubrica</th><th>Tipo'+ii('col.tipo')+'</th><th class="n">Incorrido</th><th class="n">Últ. 3 meses'+ii('col.ult3')+'</th><th class="n">Projetado</th><th class="n">Recebido do '+D.oi_sh+ii('col.recebido')+'</th><th>Fonte'+ii('col.fonte')+'</th><th></th></tr>';
+  h+='<div class="tbl-wrap"><table class="rubt"><tr><th>Rubrica</th><th>Tipo'+ii('col.tipo')+'</th><th class="n">Incorrido</th><th class="n">Últ. 3 meses'+ii('col.ult3')+'</th><th class="n">Projetado</th><th class="n">'+(o===D.oi_sh?'Enviado às obras (ND)'+ii('col.enviado'):'Recebido do '+D.oi_sh+ii('col.recebido'))+'</th><th>Fonte'+ii('col.fonte')+'</th><th></th></tr>';
+  {const e1=D.estrutura.find(e=>e.WBS==='01');h+=`<tr class="mae l1 tot"><td colspan="2">01 ${esc(e1?e1.DESCRICAO:'CUSTO TOTAL')} (custo total do projeto)</td><td class="n">${R(sum('01','inc'))}</td><td class="n">${R(sum('01','u3')/3)}</td><td class="n">${R(sum('01','pj'))}</td><td class="n">${R(sum('01','rt'))}</td><td colspan="2"></td></tr>`}
   D.estrutura.forEach(e=>{const w=e.WBS,lv=e.NIVEL;if(lv<2)return;const filho=D.estrutura.some(z=>z.WBS!==w&&z.WBS.startsWith(w+'.'));
     if(filho){h+=`<tr class="mae l${lv}"><td colspan="2">${w} ${esc(e.DESCRICAO)}</td><td class="n">${R(sum(w,'inc'))}</td><td class="n">${R(sum(w,'u3')/3)}</td><td class="n">${R(sum(w,'pj'))}</td><td class="n">${R(sum(w,'rt'))}</td><td colspan="2"></td></tr>`;return}
     const a=ag[w]||{inc:0,u3:0,pj:0,rt:0,org:new Set()};const[tp,cm]=COMO(w);const ab=RUB_AB.has(w);const podeItem=!['A','B','R'].includes(tp)||w==='01.01.02.13';
