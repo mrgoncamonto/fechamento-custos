@@ -54,13 +54,18 @@ async function abrirPainel(){
   if(carregando)return;carregando=true;
   const {data:{session}}=await sb.auth.getSession();if(!session){carregando=false;return tela('login')}
   $('f').hidden=false;$('vLogin').hidden=true;msg('Carregando o painel…',true);
-  const [{data:per},{data:rows,error}]=await Promise.all([sb.rpc('painel_perfil'),sb.from('painel_dados').select('ref,perfil,dados').order('ref',{ascending:false}).limit(2)]);
+  const [{data:per},{data:rows,error}]=await Promise.all([sb.rpc('painel_perfil'),sb.from('painel_dados').select('ref,perfil,dados').like('ref','2%').order('ref',{ascending:false}).limit(2)]);
   if(per==='admin'&&(sessionStorage.getItem('pe_carga')||(!error&&rows&&!rows.length))){carregando=false;return tela('carga')}
   if(error||!per||!rows||!rows.length){carregando=false;$('vLogin').hidden=false;
     msg(per?'Nenhum fechamento publicado ainda.':'Seu e-mail não tem acesso a este painel. Fale com o Matheus (Custos).');await sb.auth.signOut();return}
   const ref=rows[0].ref,row=rows.find(r=>r.ref===ref&&r.perfil===per)||rows.find(r=>r.ref===ref);
   const {data:pm}=await sb.from('painel_projecoes').select('oi,wbs,metodo,valor,n,ini,fim,obs,atualizado_por,atualizado_em');
   row.dados.proj_manual=pm||[];
+  if(row.perfil==='admin'){ // premissas, tabelas e itens das projeções (uma linha só, ref 0-CONFIG)
+    const {data:cf}=await sb.from('painel_dados').select('dados').eq('ref','0-CONFIG').eq('perfil','admin').maybeSingle();
+    if(cf&&cf.dados&&cf.dados.cfg){row.dados.cfg_site=cf.dados.cfg;row.dados.cfg_info={em:cf.dados.em,por:cf.dados.por}}
+    window.__cfgStore={save:async c=>{const em=new Date().toISOString(),por=session.user.email.split('@')[0];
+      const {error}=await sb.from('painel_dados').upsert({ref:'0-CONFIG',perfil:'admin',dados:{cfg:c,em,por}},{onConflict:'ref,perfil'});return {error,em,por}}}}
   window.__painelStore={load:async()=>{const {data}=await sb.from('painel_projecoes').select('*');return data||[]},
     save:async r=>{const {error}=await sb.from('painel_projecoes').upsert(r,{onConflict:'oi,wbs'});return {error}},
     del:async(oi,wbs)=>{const {error}=await sb.from('painel_projecoes').delete().eq('oi',oi).eq('wbs',wbs);return {error}}};
@@ -96,7 +101,7 @@ $('bc').onclick=async()=>{const f=$('arq').files[0];if(!f)return msg('Escolha o 
       if(c==='"')str=true;else if(c==='{')dep++;else if(c==='}'){dep--;if(!dep)break}}
     const d=JSON.parse(h.slice(i,j+1));const ref=d.ref;
     msg('Publicando '+ref+'…',true);
-    const adm=Object.assign({},d,{modo:'admin'}),lei=Object.assign({},d,{avisos:[],diverg:[],modo:'leitura'});
+    const adm=Object.assign({},d,{modo:'admin'}),lei=Object.assign({},d,{avisos:[],diverg:[],modo:'leitura'});['hv','grade','hv_meses','cfg0'].forEach(k=>delete lei[k]);
     const {error}=await sb.from('painel_dados').upsert([{ref,perfil:'admin',dados:adm},{ref,perfil:'leitura',dados:lei}],{onConflict:'ref,perfil'});
     if(error)throw new Error(error.message);
     sessionStorage.removeItem('pe_carga');msg('Fechamento '+ref+' publicado.',true);setTimeout(abrirPainel,700)}

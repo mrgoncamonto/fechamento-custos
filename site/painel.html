@@ -167,6 +167,56 @@ table.proj td.acts{white-space:nowrap}
 #tOIs th{letter-spacing:.02em;white-space:normal;vertical-align:bottom}
 #tOIs .tag{display:inline-block;margin:2px 0 0 0}
 footer{max-width:1240px;margin:0 auto;padding:0 24px 32px;color:var(--muted);font-size:11px}
+
+/* ---- Projeções: submenu, editores, itens ---- */
+.projbar{display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding:8px 10px;margin:-4px 0 10px;border:1px solid var(--rule);border-radius:6px;background:var(--panel);font-size:12px;position:sticky;top:0;z-index:5}
+.projbar .sp{flex:1}.projbar .muted{color:var(--muted)}
+.btnx.pri{background:var(--brand1);border-color:var(--brand1);color:#fff}.btnx:disabled{opacity:.45;cursor:default}
+.subtabs{display:flex;flex-wrap:wrap;gap:2px;border-bottom:1px solid var(--rule);margin:0 0 14px}
+.stab{font:inherit;font-size:12.5px;padding:7px 12px;border:0;border-bottom:2px solid transparent;background:transparent;color:var(--text2);cursor:pointer}
+.stab[aria-selected="true"]{color:var(--text);border-bottom-color:var(--brand1);font-weight:600}.stab:hover{color:var(--text)}
+.h3{font-size:13px;font-weight:600;margin:16px 0 6px;color:var(--text)}
+table.ed{font-size:12px;border-collapse:collapse}table.ed th{white-space:normal;text-align:left;font-weight:600;color:var(--text2);padding:5px 6px;border-bottom:1px solid var(--rule)}
+table.ed td{padding:3px 6px;border-bottom:1px solid var(--grid);vertical-align:middle}table.ed td.n,table.ed th.n{text-align:right}
+table.ed input,table.ed select,.busca,.frm input,.frm select,.prem input,.prem select{font:inherit;font-size:12px;padding:4px 6px;border:1px solid var(--rule);border-radius:4px;background:var(--panel);color:var(--text)}
+table.ed input{width:100%;min-width:70px;box-sizing:border-box}table.ed input.n{text-align:right;max-width:120px}
+.btnx.add{margin-top:6px}.btnx.del{padding:2px 7px}
+.busca{width:240px;margin:0 8px 8px 0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:18px}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.prem{border:1px solid var(--rule);border-radius:6px;padding:8px 10px;background:var(--panel);display:flex;flex-direction:column;gap:4px}
+.prem label{font-size:11px;font-weight:600;letter-spacing:.04em;color:var(--text2)}.prem .pin{display:flex;gap:6px;align-items:center}.prem .pin input,.prem .pin select{width:130px;text-align:right}
+.prem .un{font-size:11px;color:var(--muted)}.prem .pd{font-size:11px;color:var(--muted);line-height:1.35}
+.uso{align-self:flex-start;font-size:10px;padding:1px 6px;border-radius:999px;border:1px solid var(--rule);color:var(--muted)}
+.uso.ok,.badge.ok{border-color:var(--good);color:var(--good)}.uso.warn,.badge.warn{border-color:var(--warn);color:var(--warn)}.badge.neg{border-color:var(--bad);color:var(--bad)}
+.badge{display:inline-block;font-size:10.5px;padding:1px 7px;border-radius:999px;border:1px solid var(--rule);color:var(--text2);white-space:nowrap;max-width:260px;overflow:hidden;text-overflow:ellipsis;vertical-align:middle}
+.tipo{display:inline-block;min-width:18px;text-align:center;font-size:11px;font-weight:700;padding:1px 5px;border-radius:4px;background:var(--acpf);border:1px solid var(--rule);color:var(--text)}
+table.rubt{font-size:12px;border-collapse:collapse;width:100%}table.rubt th{text-align:left;font-weight:600;color:var(--text2);padding:5px 6px;border-bottom:1px solid var(--rule);white-space:normal}table.rubt th.n{text-align:right}
+table.rubt td{padding:4px 6px;border-bottom:1px solid var(--grid);vertical-align:middle}table.rubt td.n{text-align:right;white-space:nowrap}
+table.rubt tr.mae td{font-weight:700;background:var(--acpf)}table.rubt tr.mae.l2 td{background:var(--acp1);color:var(--acpt)}table.rubt tr.mae.l3 td{background:var(--acph);color:var(--text)}
+table.rubt tr.fil td.rl{cursor:pointer;padding-left:18px}table.rubt tr.fil td.rl:hover{text-decoration:underline}table.rubt tr.fil.open td{background:var(--grid)}
+table.rubt tr.det>td{padding:8px 10px 12px 26px;background:var(--bg)}table.rubt td.muted{text-align:left;font-size:11px;white-space:normal;min-width:180px;max-width:280px}table.rubt td.rl{white-space:normal;min-width:200px}
+.memo{max-height:320px;overflow:auto}details summary{cursor:pointer;font-size:12px;color:var(--text2);margin:6px 0}
+dialog#dlgItem{border:1px solid var(--rule);border-radius:8px;padding:0;background:var(--panel);color:var(--text);width:min(880px,96vw);max-height:92vh}
+dialog#dlgItem::backdrop{background:rgba(0,0,0,.35)}
+.dlg{padding:16px 18px}.dlg h3{margin:0 0 12px;font-size:14px}
+.frm{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}.frm label{display:flex;flex-direction:column;gap:3px;font-size:11.5px;color:var(--text2)}.frm .w2{grid-column:1/-1}
+.frm fieldset{grid-column:1/-1;border:1px solid var(--rule);border-radius:6px;padding:8px 10px}.frm legend{font-size:11.5px;color:var(--text2)}.frm label.chk{display:inline-flex;flex-direction:row;align-items:center;gap:4px}
+.hgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-top:8px}.hgrid select[multiple]{min-height:96px}
+.prev{margin-top:12px;border-top:1px solid var(--rule);padding-top:8px;font-size:12px}.prev .pc{display:flex;flex-wrap:wrap;gap:4px 14px;max-height:140px;overflow:auto;color:var(--text2);font-size:11.5px;margin-top:4px}
+.dlgb{display:flex;justify-content:flex-end;gap:8px;margin-top:14px}
+@media (max-width:700px){.busca{width:100%}.projbar{position:static}}
+
+/* ---- ícone de explicação (i): abre no clique, fecha no X ---- */
+.ii{display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;margin-left:5px;padding:0;border:1px solid var(--muted);border-radius:50%;background:transparent;color:var(--muted);font:italic 600 10px/1 Georgia,serif;cursor:pointer;vertical-align:middle;flex:none;text-transform:none;letter-spacing:0}
+.ii:hover,.ii[aria-expanded="true"]{border-color:var(--brand1);color:var(--brand1)}
+.ii:focus-visible{outline:2px solid var(--brand1);outline-offset:1px}
+th .ii,tr.mae .ii{border-color:currentColor;color:inherit;opacity:.75}
+#gpop{position:absolute;z-index:1000;width:min(360px,calc(100vw - 32px));background:var(--panel);color:var(--text);border:1px solid var(--rule);border-radius:8px;box-shadow:0 8px 28px rgba(0,0,0,.18);font-size:12.5px;line-height:1.5}
+#gpop .gh{display:flex;align-items:flex-start;gap:8px;padding:10px 12px 4px}#gpop .gh b{flex:1;font-size:13px}
+#gpop .gx{border:0;background:transparent;color:var(--text2);font-size:16px;line-height:1;cursor:pointer;padding:2px 4px;border-radius:4px}#gpop .gx:hover{background:var(--grid);color:var(--text)}
+#gpop .gb{padding:0 12px 12px;color:var(--text2);max-height:60vh;overflow:auto}#gpop .gb p{margin:0 0 6px}
+#gpop.lista{width:min(560px,calc(100vw - 32px))}#gpop .gb dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 12px}#gpop .gb dt{font-weight:600;color:var(--text)}#gpop .gb dd{margin:0}
 </style>
 </head>
 <body>
@@ -193,7 +243,7 @@ footer{max-width:1240px;margin:0 auto;padding:0 24px 32px;color:var(--muted);fon
   <button class="tab" role="tab" data-pg="av" id="tabA" aria-selected="false">Avisos do motor <span class="cnt" id="avCnt"></span></button>
   <span class="sp"></span>
   <label class="chk" id="evWrap"><input type="checkbox" id="evChk"> Incluir receita eventual <span id="evVal"></span></label>
-  <button class="btnx" id="btnXls" title="Baixar os quadros em Excel">⭳ Exportar Excel</button>
+  <button class="btnx" id="btnXls" title="Baixar os quadros em Excel">⭳ Exportar Excel</button> <button type="button" class="btnx" data-g="glossario" aria-expanded="false">ⓘ Siglas e termos</button>
 </nav>
 <section id="pgAvisos" hidden><main>
   <div class="card"><h2>Avisos do motor</h2><p class="hint">Pontos que o motor encontrou nos dados de entrada e premissas que ele aplicou. Para uso de quem prepara o fechamento.</p><ul class="avisos" id="avisos" style="border:none;margin:0"></ul></div>
@@ -222,7 +272,6 @@ footer{max-width:1240px;margin:0 auto;padding:0 24px 32px;color:var(--muted);fon
   </div>
   <div class="card" data-tela="proj">
     <h2>Projeções</h2>
-    <label class="chk" style="float:right;margin-top:-30px"><input type="checkbox" id="projTodas"> mostrar todas as rubricas</label>
     <div id="projBox"></div>
   </div>
   <div class="card" data-tela="fc">
@@ -320,22 +369,6 @@ footer{max-width:1240px;margin:0 auto;padding:0 24px 32px;color:var(--muted);fon
     <p class="hint">Quais premissas formam o custo projetado. Clique numa linha para abrir a composição: quantidade, preço e período.</p>
     <div class="tbl-wrap"><table id="tOrig"></table></div>
   </div>
-  <div class="card" data-tela="todas">
-    <h2>Siglas e termos</h2>
-    <div class="gloss">
-      <div><b>EAC</b> (Estimate at Completion): custo total estimado no término = incorrido + projetado.</div>
-      <div><b>Incorrido</b>: custo já lançado no Razão até o mês de referência.</div>
-      <div><b>Projetado</b>: custo previsto do mês seguinte até o término.</div>
-      <div><b>HH</b>: homem-hora. <b>R$/HH</b>: custo de pessoal ÷ horas.</div>
-      <div><b>OI</b>: obra industrial. <b>OI1053E</b>: custos compartilhados, distribuídos entre as OIs.</div>
-      <div><b>MF</b>: custos com fornecedores e subcontratados (pedidos e contratos).</div>
-      <div><b>ND</b>: nota de débito interna que transfere custo entre OIs.</div>
-      <div><b>PERT</b>: média ponderada (otimista + 4 × atual + pessimista) ÷ 6.</div>
-      <div><b>Avanço físico</b>: % do escopo executado, informado pelo Planejamento.</div>
-      <div><b>Receita reconhecida</b>: % de avanço físico × preço do contrato, mais aditivos e reajustes medidos.</div>
-      <div><b>p.p.</b>: pontos percentuais.</div>
-    </div>
-  </div>
 </main>
 
 <footer id="rodape"></footer>
@@ -364,6 +397,57 @@ const P=v=>v==null||isNaN(v)?'–':(v*100).toLocaleString('pt-BR',{maximumFracti
 const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 const mesLbl=m=>{if(typeof m!=='string'||!m.includes('-'))return '–';const[a,b]=m.split('-');return['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'][+b-1]+'/'+a.slice(2)};
 const desc=Object.fromEntries(D.estrutura.map(e=>[e.WBS,e.DESCRICAO]));
+
+// ---------- Explicações (i): clique abre, X fecha. Cada termo tem um id fixo (ex.: prem.PCT_OVERHEAD) para receber comentários no futuro ----------
+const GL={
+ 'termo.eac':['EAC (custo no término)','Estimate at Completion: custo total estimado no término = incorrido + projetado.'],
+ 'termo.incorrido':['Incorrido','Custo já lançado no Razão contábil até o mês de referência.'],
+ 'termo.projetado':['Projetado','Custo previsto do mês seguinte ao fechamento até o término.'],
+ 'termo.hh':['HH e R$/HH','HH = homem-hora. R$/HH = custo de pessoal ÷ horas trabalhadas.'],
+ 'termo.oi':['OI','Obra industrial. A OI1053E reúne os custos compartilhados, distribuídos entre as outras OIs pelas horas previstas no histograma.'],
+ 'termo.mf':['MF','Custos com fornecedores e subcontratados (pedidos e contratos).'],
+ 'termo.nd':['ND','Nota de débito interna que transfere custo entre OIs.'],
+ 'termo.pert':['Provável (PERT)','Média ponderada: (otimista + 4 × atual + pessimista) ÷ 6.'],
+ 'termo.avanco':['Avanço físico','% do escopo executado, pelo boletim de medição (item 1.3 Medição por Avanço).'],
+ 'termo.receita':['Receita reconhecida','% de avanço físico × preço global do contrato, mais aditivos e reajustes medidos.'],
+ 'termo.pp':['p.p.','Pontos percentuais: diferença entre dois percentuais (ex.: 18% − 15% = 3 p.p.).'],
+ 'cen.meta':['Meta','Custo e receita da meta aprovada (orçamento).'],
+ 'cen.realizado':['Realizado','O que já aconteceu até o mês de referência: custo incorrido e receita reconhecida.'],
+ 'cen.projecao':['Projeção','O que falta acontecer, do mês seguinte até o término.'],
+ 'cen.atual':['Atual','Realizado + projeção, sem nenhum ajuste de cenário.'],
+ 'cen.provavel':['Provável','Média PERT: (otimista + 4 × atual + pessimista) ÷ 6.'],
+ 'cen.pessimista':['Pessimista','Atual com os % de cenário pessimista aplicados só sobre o que falta (custo a incorrer e receita a faturar).'],
+ 'cen.otimista':['Otimista','Atual com os % de cenário otimista aplicados só sobre o que falta.'],
+ 'col.ult3':['Últ. 3 meses','Média mensal do incorrido nos 3 últimos meses fechados. Serve de régua para a projeção.'],
+ 'col.recebido':['Recebido do compartilhado','Parte do custo da OI1053E que vem para esta OI pelo rateio das horas previstas no histograma.'],
+ 'col.fonte':['Fonte','De onde vem a projeção da rubrica: automático (histograma e premissas), itens lançados aqui, motor (base Excel) ou sem projeção.'],
+ 'col.tipo':['Tipo de cálculo','A histograma × salário · B % sobre uma base · C pessoas × valor · D por vaga (Efetivo) · E itens · F itens ligados ao histograma · G contratos de fornecedores · R rateio do compartilhado. Veja a aba "Como cada rubrica é projetada".'],
+ 'item.contar':['O que contar no histograma','Pessoas no mês: soma das pessoas previstas. Entradas: vagas que começam no mês. Saídas: vagas que terminam. Aniversário de 12 meses: vagas que completam 12, 24… meses (ex.: exame periódico).'],
+ 'item.fator':['Fator','Quantidade por pessoa contada. 1 = uma unidade por pessoa; 0,5 = uma para cada duas.'],
+};
+const H2I={'Radar':['h2.radar','Mesma grade da Radar do ACP: até o mês de referência vem do Razão; depois, da projeção.'],'Histograma':['h2.hist','Pessoas previstas por mês (FTE), da planilha de histograma da Engenharia.'],
+ 'Estudo de Cenários':['h2.cen','Resultado no término em cada cenário, no formato do ACP.'],'Premissas de cenários':['h2.premcen','Percentuais aplicados só sobre o que falta acontecer.'],
+ 'Composição da receita':['h2.rec','Contrato (preço global), PPU, aditivos, reajustes e eventual; quanto já foi reconhecido.'],'Curva acumulada':['h2.curva','Custo e receita acumulados. A distância entre as linhas é a margem acumulada; a linha cinza é o custo meta.'],
+ 'HH: real × histograma':['h2.hh','Horas trabalhadas (folha) contra as horas previstas no histograma.'],'Custo de pessoal por HH (R$/HH)':['h2.rshh','Custo de pessoal ÷ horas. Orçado vem da MC de cada OI.'],
+ 'Avanço físico × custo':['h2.avanco','% do custo já incorrido contra % do avanço físico. Custo à frente do avanço indica risco de estouro.'],
+ 'De onde vem a projeção':['h2.origem','Cada premissa que forma o custo projetado, com quantidade, preço e período.'],'Rubricas: previsto × realizado':['h2.prevreal','Custo realizado de cada rubrica contra o que o fechamento anterior previa.']};
+const GLD={};
+const ii=(id,tit,txt)=>{if(tit!=null)GLD[id]=[tit,txt];return `<button type="button" class="ii" data-g="${id}" aria-label="O que é ${String((GLD[id]||GL[id]||[''])[0]).replace(/"/g,'&quot;')}" aria-expanded="false">i</button>`};
+const gEsc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let GBTN=null;
+function gFecha(){const p=document.getElementById('gpop');if(p)p.remove();if(GBTN){GBTN.setAttribute('aria-expanded','false');GBTN.focus({preventScroll:true})}GBTN=null}
+function gAbre(btn,tit,html,lista){gFecha();const p=document.createElement('div');p.id='gpop';p.setAttribute('role','dialog');p.setAttribute('aria-label',tit);if(lista)p.className='lista';
+  p.dataset.g=btn.dataset.g||'';p.innerHTML=`<div class="gh"><b>${gEsc(tit)}</b><button type="button" class="gx" aria-label="Fechar">✕</button></div><div class="gb">${html}</div>`;
+  const dl=btn.closest('dialog');(dl||document.body).appendChild(p);const fx=!!dl;if(fx)p.style.position='fixed';const sx=fx?0:window.scrollX,sy=fx?0:window.scrollY;
+  const r=btn.getBoundingClientRect();const w=p.offsetWidth;let x=r.left+sx-8;x=Math.max(sx+16,Math.min(x,sx+document.documentElement.clientWidth-w-16));
+  p.style.left=x+'px';p.style.top=(r.bottom+sy+6)+'px';GBTN=btn;btn.setAttribute('aria-expanded','true');p.querySelector('.gx').onclick=e=>{e.stopPropagation();gFecha()};p.querySelector('.gx').focus({preventScroll:true})}
+document.addEventListener('click',e=>{const b=e.target.closest('.ii,[data-g="glossario"]');if(!b)return;e.preventDefault();e.stopPropagation();
+  if(GBTN===b){gFecha();return}const id=b.dataset.g;
+  if(id==='glossario'){const it=Object.entries(GL).filter(([k])=>k.startsWith('termo.'));return gAbre(b,'Siglas e termos','<dl>'+it.map(([,v])=>`<dt>${gEsc(v[0])}</dt><dd>${gEsc(v[1])}</dd>`).join('')+'</dl>',true)}
+  const v=GLD[id]||GL[id];if(!v)return;gAbre(b,v[0],String(v[1]).split('\n').map(t=>'<p>'+gEsc(t)+'</p>').join(''))},true);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('gpop')){e.preventDefault();e.stopPropagation();gFecha()}},true);
+window.addEventListener('resize',()=>{if(document.getElementById('gpop'))gFecha()});
+document.querySelectorAll('h2').forEach(h=>{const m=H2I[h.textContent.trim()];if(m)h.insertAdjacentHTML('beforeend',ii(m[0],h.textContent.trim(),m[1]))});
 let SEL=(()=>{try{return localStorage.getItem('painelEngOI')||'CONSOLIDADO'}catch(e){return 'CONSOLIDADO'}})();
 if(SEL!=='CONSOLIDADO'&&!D.ois.includes(SEL))SEL='CONSOLIDADO';
 const charts={};
@@ -431,13 +515,13 @@ function kpis(){
   const dm=(r.MARGEM_EAC??NaN)-(r.MARGEM_META??NaN);
   const k=[
     ['Receita no término',M(r.RECEITA_EAC),'Contrato '+M(r.RECEITA_CONTRATO)+(r.RECEITA_PPU?' · PPU '+M(r.RECEITA_PPU):''),'Contrato = valor do ACP (preço global). Término = contrato'+(r.RECEITA_PPU?' + PPU sob demanda':'')+' + aditivos + reajustes'+(EV?' + eventual':'')+'.'],
-    ['Custo no término (<abbr title="Estimate at Completion">EAC</abbr>)',M(r.CUSTO_EAC),'Meta '+M(r.CUSTO_META),'EAC = custo total estimado no término (incorrido + projetado).'],
+    ['Custo no término (EAC)',M(r.CUSTO_EAC),'Meta '+M(r.CUSTO_META),'EAC = custo total estimado no término (incorrido + projetado).'],
     ['Margem no término',P(r.MARGEM_EAC),isNaN(dm)?'Sem meta':'<span class="'+(dm>=0?'pos':'neg')+'">'+(dm>=0?'▲ ':'▼ ')+(Math.abs(dm*100)).toFixed(1).replace('.',',')+' p.p.</span> vs meta '+P(r.MARGEM_META),'(Receita − custo) ÷ receita no término.'],
     ['Custo incorrido',M(r.CUSTO_INCORRIDO),r.CUSTO_EAC?P(r.CUSTO_INCORRIDO/r.CUSTO_EAC)+' do EAC':'','Já lançado no Razão até '+mesLbl(D.ref)+'.'],
     ['Custo de pessoal por hora',r.RS_HH_REAL_ULT?'R$ '+fmt2.format(r.RS_HH_REAL_ULT):'–',hhLin(r),'Valor grande: realizado dos últimos '+(D.n_idx||3)+' meses. Orçado = MC ('+(r.OIS_ORCADAS?r.OIS_ORCADAS.replace(/OI/g,'').replace(/,/g,', '):'sem MC')+').'],
     ['Risco no custo de pessoal',M(r.AJUSTE_INDICE_HH),r.AJUSTE_INDICE_HH>0?'<span class="neg">projeção abaixo do realizado</span>':'<span class="pos">projeção cobre o realizado</span>','Quanto o pessoal que falta custaria a mais se mantiver o R$/HH realizado.'],
   ];
-  document.getElementById('kpis').innerHTML=k.map(x=>`<div class="kpi"><div class="l">${x[0]}</div><div class="v">${x[1]}</div><div class="d">${x[2]}</div><div class="fp">${x[3]}</div></div>`).join('');
+  document.getElementById('kpis').innerHTML=k.map((x,j)=>`<div class="kpi"><div class="l">${x[0]}${ii('kpi.'+['receita','eac','margem','incorrido','rshh','risco'][j],x[0],String(x[3]).replace(/<[^>]+>/g,''))}</div><div class="v">${x[1]}</div><div class="d">${x[2]}</div></div>`).join('');
 }
 
 const GRP=t=>/Eventual/.test(t)?'Eventual':/PPU/.test(t)?'PPU (sob demanda)':/Aditivo/.test(t)?'Aditivos':/Reajuste/.test(t)?'Reajustes':'Contrato (preço global)';
@@ -759,7 +843,7 @@ function cenarios(){
   const nm={meta:'Meta',at:'Atual',pv:'Provável',P:'Pessimista',O:'Otimista'};
   const cell=(o,c,cls,t)=>{const v=o[c];const dr=t&&nm[c]?` class="drill" data-t="${t}" data-c="${c}"`:'';return `<td${dr}${cls?' class="'+cls+'"':''}>${v==null?'–':(dr?'<span>'+R(v)+'</span>':R(v))}</td>`};
   const pc=(o,c)=>`<td>${o[c]==null?'–':P(o[c])}</td>`;
-  let h='<thead><tr><th rowspan="2"></th><th rowspan="2">Meta</th><th>Realizado</th><th rowspan="2">Projeção</th><th colspan="4" class="grp">Estimativa no Término</th></tr><tr><th>Atual</th><th>Atual</th><th>Provável</th><th>Pessimista</th><th>Otimista</th></tr></thead><tbody>';
+  let h='<thead><tr><th rowspan="2"></th><th rowspan="2">Meta'+ii('cen.meta')+'</th><th>Realizado'+ii('cen.realizado')+'</th><th rowspan="2">Projeção'+ii('cen.projecao')+'</th><th colspan="4" class="grp">Estimativa no Término</th></tr><tr><th>Atual</th><th>Atual'+ii('cen.atual')+'</th><th>Provável'+ii('cen.provavel')+'</th><th>Pessimista'+ii('cen.pessimista')+'</th><th>Otimista'+ii('cen.otimista')+'</th></tr></thead><tbody>';
   recs.forEach(g=>{const o=L['r:'+g];h+=`<tr><td class="rl">${g==='Contrato (preço global)'?'RECEITA (contrato – preço global)':g}</td>${C.map(c=>cell(o,c)).join('')}</tr>`});
   h+=`<tr class="st"><td class="rl">Receita Total</td>${C.map(c=>cell(RT,c,'','r')).join('')}</tr>`;
   h+=`<tr class="sp"><td colspan="8"></td></tr><tr class="st"><td class="rl">Custo Direto Total (01.01 + 01.02 + 01.03)</td>${C.map(c=>cell(CD,c,'','c')).join('')}</tr>`;
@@ -895,7 +979,7 @@ function valorMes(q){const met=String(q.metodo||'MENSAL').toUpperCase();const fu
   return {v,ms}}
 let CUS1=null,RES1=null,COMP1=null;
 function aplicaManual(){
-  let C=CUS0.slice();const novos=[],comp=[];const SH=D.oi_sh;
+  let C=baseCusto().slice();const novos=[],comp=[];const SH=D.oi_sh;
   // chave do rateio futuro: HH do histograma das OIs (sem a compartilhada)
   const ch={};const seen=new Set();D.hh.forEach(h=>{const k=h.OI+h.MES;if(h.OI!==SH&&h.HH_HISTOGRAMA!=null&&!seen.has(k)){seen.add(k);(ch[h.MES]||(ch[h.MES]={}))[h.OI]=h.HH_HISTOGRAMA}});
   PMAN.forEach(q=>{const {v,ms}=valorMes(q);
@@ -909,7 +993,7 @@ function aplicaManual(){
       const wOut=q.wbs.startsWith('01.01')?'01.02.05.01':'01.02.05.02';
       new Set([...Object.keys(old),...Object.keys(nw)]).forEach(m=>{const d=(nw[m]||0)-(old[m]||0);if(Math.abs(d)>0.005)novos.push({OI:SH,MES:m,WBS:wOut,TIPO:'PROJ',ORIGEM:'ND interna projetada (saída)',RATEIO:true,VALOR:-d})});
     }});
-  CUS1=C.concat(novos);COMP1=(D.comp0||[]).filter(c=>!PMAN.some(q=>q.oi===c.OI&&c.ITEM&&String(c.ITEM).startsWith(q.wbs)&&c.ORIGEM!=='Projeção manual (site)')).concat(comp);
+  CUS1=C.concat(novos);COMP1=baseComp().filter(c=>!PMAN.some(q=>q.oi===c.OI&&c.ITEM&&String(c.ITEM).startsWith(q.wbs)&&c.ORIGEM!=='Projeção manual (site)')).concat(comp);
   // efeito no resumo (por OI e consolidado)
   const fx=o=>(D.faixas||[]).find(x=>x.OI===o)||{};
   const grp=(arr,o)=>{let p=0,t=0;arr.forEach(c=>{if(c.OI!==o||c.TIPO!=='PROJ')return;t+=c.VALOR;if(c.WBS.startsWith('01.01')&&!c.RATEIO)p+=c.VALOR});return [p,t-p]};
@@ -922,39 +1006,308 @@ function aplicaManual(){
     ['EAC','PESSIMISTA','OTIMISTA','PROVAVEL'].forEach(s=>{const rv=n['RECEITA_'+s];n['MARGEM_'+s]=rv?(rv-n['CUSTO_'+s])/rv:null});
     n.MARGEM_INDICE_HH=n.RECEITA_EAC?(n.RECEITA_EAC-n.CUSTO_INDICE_HH)/n.RECEITA_EAC:null;return n});
 }
+// ---------- Motor de projeção no navegador ----------
+// ---------- Motor de projeção do site (premissas + itens) ----------
+const ENG=(()=>{
+const ORIG_AUTO=new Set(['Histograma x salário','Encargos CLT','Encargos ESTAG','Encargos PJ','Memória ACP','% Overhead x receita','% Contingência x receita']);
+const mAdd=(m,k)=>{const[a,b]=m.split('-').map(Number);const d=new Date(Date.UTC(a,b-1+k,1));return d.toISOString().slice(0,7)};
+function pascoa(y){const a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),mo=Math.floor((h+l-7*m+114)/31),da=((h+l-7*m+114)%31)+1;return Date.UTC(y,mo-1,da)}
+function feriadosAno(cfg,y){const P=pv(cfg);const uf=String(P.UF_OBRA||'').trim().toUpperCase(),mun=String(P.MUN_OBRA||'').trim().toUpperCase();const s=new Set();
+  (cfg.feriados||[]).forEach(f=>{if(f.ab==='Estadual'&&String(f.uf||'').toUpperCase()!==uf)return;if(f.ab==='Municipal'&&(String(f.uf||'').toUpperCase()!==uf||String(f.mun||'').toUpperCase()!==mun))return;
+    let t;if(f.t==='Móvel'){if(f.p==null||f.p==='')return;t=pascoa(y)+(+f.p)*864e5}else{if(!f.d||!f.m)return;t=Date.UTC(y,+f.m-1,+f.d)}s.add(t)});return s}
+function pv(cfg){const o={};(cfg.premissas||[]).forEach(p=>o[p.k]=p.v);return o}
+function calendario(cfg,meses){const P=pv(cfg);const out={};const fy={};
+  meses.forEach(m=>{const[y,mo]=m.split('-').map(Number);const F=fy[y]||(fy[y]=feriadosAno(cfg,y));let du=0;
+    for(let d=1;d<=31;d++){const t=Date.UTC(y,mo-1,d);const dt=new Date(t);if(dt.getUTCMonth()!==mo-1)break;const w=dt.getUTCDay();if(w===0||w===6||F.has(t))continue;du++}
+    const aj=(cfg.cal_ajuste||{})[m];const duf=aj!=null&&aj!==''?+aj:du;const hn=duf*(+P.HORAS_DIA||0);out[m]={du:duf,du_calc:du,aj:aj!=null&&aj!=='',hhN:hn,hhE:hn*(+P.FATOR_ESTAG||0)}});return out}
+function fator(cfg,tipo,m){let f=1;(cfg.reajustes||[]).forEach(r=>{if(r.tipo!==tipo||!r.data||r.data>m)return;const p=r.ofic!=null&&r.ofic!==''?+r.ofic:(r.prev!=null&&r.prev!==''?+r.prev:0);f*=1+p});return f}
+// quantidade de um evento por vaga/mês na lista de meses ms (F = {mes:fte})
+function evento(F,ms,i,ev){const q=m=>+(F[m]||0);const cur=q(ms[i]);
+  if(ev==='FTE')return cur;const pos=cur>0;if(!pos)return 0;
+  if(ev==='ENT')return i===0||!(q(ms[i-1])>0)?1:0;
+  if(ev==='SAI')return i===ms.length-1||!(q(ms[i+1])>0)?1:0;
+  if(ev==='ANIV'){let k=0;for(let j=0;j<=i;j++)if(q(ms[j])>0)k++;return k>12&&(k-1)%12===0?1:0}
+  return 0}
+function itemQtdMes(cfg,D,it,m,cache){
+  if(it.modo!=='HIST')return +it.qtd||0;
+  const f=it.filtro||{};const ois=f.ois&&f.ois.length?f.ois:[it.oi];const ms=D.hv_meses;const i=ms.indexOf(m);if(i<0)return 0;
+  let q=0;D.hv.forEach(r=>{if(!ois.includes(r.O))return;if(f.equipes&&f.equipes.length&&!f.equipes.includes(r.E))return;if(f.siglas&&f.siglas.length&&!f.siglas.includes(r.S))return;if(f.regimes&&f.regimes.length&&!f.regimes.includes(r.G))return;q+=evento(r.F,ms,i,f.evento||'FTE')});
+  return q*(it.fator==null||it.fator===''?1:+it.fator)}
+function itemValorUnit(cfg,it){if(it.sw){const s=(cfg.softwares||[]).find(x=>x.N===it.sw);if(s)return precoSw(s)}return +it.valor||0}
+function precoSw(s){const dv={Mensal:1,Trimestral:3,Anual:12}[s.MOD];if(s.PL!=null&&s.PL!==''&&dv)return (+s.PL)*(+s.CB||1)/dv;return +s.V||0}
+function itemMes(cfg,D,it,m){if(it.ini&&m<it.ini)return null;if(it.fim&&m>it.fim)return null;const mo=+m.slice(5);if(it.meses&&it.meses.length&&!it.meses.includes(mo))return null;
+  const q=itemQtdMes(cfg,D,it,m);const u=itemValorUnit(cfg,it);const fr=it.reaj&&it.reaj!=='NAO'?fator(cfg,it.reaj,m):1;return {q,u,fr,v:q*u*fr}}
+const LAB={'Memória ACP|01.01.03.01':'Vale refeição: pessoas × dias úteis × valor/dia','Memória ACP|01.01.03.02':'VA / cestas: CLT × valor','Memória ACP|01.01.03.03':'Vale transporte: CLT+estag × valor/dia × dias úteis − desconto','Memória ACP|01.01.03.06':'Seguro de vida: pessoas × valor','Memória ACP|01.01.03.05':'Plano de saúde: vagas × plano da vaga (Efetivo)','Memória ACP|01.01.03.07':'Ajuda de custo: vagas × valor da vaga (Efetivo)','Memória ACP|01.02.02.02':'Locação de veículo: vagas × valor da vaga (Efetivo)','Memória ACP|01.02.01.01':'Exames: admissionais + demissionais + periódicos × valor'};
+function calcular(D,cfg){
+  const P=pv(cfg);const ref=D.ref;const SH=D.oi_sh;
+  const mesesAll=[...new Set([...D.hv_meses,...D.custo.map(c=>c.MES),...D.receita.map(r=>r.MES)])].filter(m=>typeof m==='string').sort();
+  const FUT=D.hv_meses.filter(m=>m>ref);const cal=calendario(cfg,mesesAll);
+  const fun={};(cfg.funcoes||[]).forEach(f=>fun[f.S]=f);
+  const ben=(c,m)=>{const b=(cfg.beneficios||[]).find(x=>x.C===c);if(!b||b.V==null||b.V==='')return 0;if(+b.MP&&+m.slice(5)!==+b.MP)return 0;return +b.V};
+  const pl={};(cfg.planos||[]).forEach(p=>pl[p.C]=+p.V||0);
+  const fx=(cfg.faixas_vt||[]).find(x=>x.C===String(P.FAIXA_VT_PADRAO||'').trim());const vtDia=fx?+fx.V||0:0;
+  const ef={};(cfg.efetivo||[]).forEach(e=>ef[e.V]=e);
+  const rows=[],cmp={},memo={};const add=(o,m,w,v,org,item,qtd,un)=>{if(v&&isFinite(v)){rows.push({OI:o,MES:m,WBS:w,TIPO:'PROJ',ORIGEM:org,RATEIO:false,VALOR:v});
+    const lab=LAB[org+'|'+w]||(org.startsWith('Item: ')?org.slice(6):org.startsWith('Encargos')?w+' '+org:org+' '+w);const k=org+'|'+o+'|'+lab;const c=cmp[k]||(cmp[k]={ORIGEM:org,OI:o,ITEM:lab,UN:un||'',QTD:0,VALOR:0,INI:m,FIM:m});c.QTD+=+qtd||0;c.VALOR+=v;if(m<c.INI)c.INI=m;if(m>c.FIM)c.FIM=m;
+    (memo[o+'|'+w]||(memo[o+'|'+w]=[])).push({m,v,org,t:item})}};
+  const hhOI={};
+  FUT.forEach(m=>{const fs=fator(cfg,'SALARIOS',m),fb=fator(cfg,'BENEFICIOS',m);const c=cal[m];
+    const ag={};
+    D.hv.forEach(r0=>{const f=+(r0.F[m]||0);if(!(f>0))return;const r=fun[r0.S]&&fun[r0.S].G&&fun[r0.S].G!==r0.G?Object.assign({},r0,{G:fun[r0.S].G}):r0;const a=ag[r.O]||(ag[r.O]={tot:0,clt:0,ce:0,ceSal:0,sal:{},base:{CLT:0,ESTAG:0,PJ:0},hh:0});
+      const s=(fun[r.S]?+fun[r.S].SAL||0:0)*fs*f;a.tot+=f;if(r.G==='CLT')a.clt+=f;if(r.G==='CLT'||r.G==='ESTAG'){a.ce+=f;a.ceSal+=s}
+      a.sal[r.W]=(a.sal[r.W]||0)+s;if(a.base[r.G]!=null)a.base[r.G]+=s;a.hh+=f*(r.G==='ESTAG'?c.hhE:c.hhN)});
+    Object.entries(ag).forEach(([o,a])=>{(hhOI[m]||(hhOI[m]={}))[o]=a.hh;
+      Object.entries(a.sal).forEach(([w,v])=>add(o,m,w,v,'Histograma x salário','Salários: pessoas do histograma × salário da função × reajuste '+fs.toFixed(3),null,'R$'));
+      (cfg.encargos||[]).forEach(e=>['CLT','ESTAG','PJ'].forEach(g=>{const p=+e[g]||0;if(p>0&&a.base[g])add(o,m,e.W,a.base[g]*p,'Encargos '+g,e.W+' '+(e.D||'')+' ('+(p*100).toFixed(2)+'% da folha '+g+')',a.base[g],'R$ de salário')}));
+      add(o,m,'01.01.03.01',a.tot*c.du*ben('VR',m)*fb,'Memória ACP',`VR: ${a.tot.toFixed(1)} pessoas × ${c.du} dias × R$ ${ben('VR',m)} × fator ${fb.toFixed(3)}`,a.tot,'pessoa-mês');
+      ['VA','CN','CB'].forEach(k=>add(o,m,'01.01.03.02',a.clt*ben(k,m)*fb,'Memória ACP',`${k}: ${a.clt.toFixed(1)} CLT × R$ ${ben(k,m)} × fator ${fb.toFixed(3)}`,a.clt,'CLT'));
+      add(o,m,'01.01.03.03',a.ce*vtDia*c.du-(+P.DESC_VT||0)*a.ceSal,'Memória ACP',`VT: ${a.ce.toFixed(1)} CLT+estag × R$ ${vtDia} × ${c.du} dias − ${((+P.DESC_VT||0)*100).toFixed(1)}% da folha`,a.ce,'CLT+estag');
+      add(o,m,'01.01.03.06',a.tot*ben('SV',m),'Memória ACP',`Seguro de vida: ${a.tot.toFixed(1)} pessoas × R$ ${ben('SV',m)}`,a.tot,'pessoa-mês')});
+    // por vaga (Efetivo) e exames: grade do ACP
+    const i=D.hv_meses.indexOf(m);const gv={};
+    D.grade.forEach(g=>{const cur=g.F[i]||0;const o=g.O;const a=gv[o]||(gv[o]={pl:0,vid:0,aj:0,ve:0,p:0,ex:[0,0,0]});const e=ef[g.V]||{};
+      if(cur){a.p+=cur;const vp=e.PS?(pl[e.PS]||0):0;a.pl+=cur*vp;if(vp>0)a.vid+=cur;a.aj+=cur*(+e.AJ||0);a.ve+=cur*(+e.VE||0)}
+      const pos=k=>(g.F[k]||0)>0;if(pos(i)){if(i===0||!pos(i-1))a.ex[0]++;if(i===g.F.length-1||!pos(i+1))a.ex[1]++;let k=0;for(let j=0;j<=i;j++)if(pos(j))k++;if(k>12&&(k-1)%12===0)a.ex[2]++}});
+    Object.entries(gv).forEach(([o,a])=>{add(o,m,'01.01.03.05',a.pl,'Memória ACP','Plano de saúde: vagas do histograma × plano da vaga (Efetivo)',a.vid,'vidas');
+      add(o,m,'01.01.03.07',a.aj,'Memória ACP','Ajuda de custo: vagas do histograma × valor da vaga (Efetivo)',a.p,'pessoa-mês');
+      add(o,m,'01.02.02.02',a.ve,'Memória ACP','Locação de veículo: vagas × valor da vaga (Efetivo)',a.p,'pessoa-mês');
+      const n=a.ex[0]+a.ex[1]+a.ex[2];add(o,m,'01.02.01.01',n*ben('EXAM',m),'Memória ACP',`Exames: ${a.ex[0]} admissionais + ${a.ex[1]} demissionais + ${a.ex[2]} periódicos × R$ ${ben('EXAM',m)}`,n,'exames')})});
+  // indiretos e impostos sobre a receita
+  const rf={};D.receita.forEach(r=>{if(r.MES>ref){const k=r.OI+'|'+r.MES;rf[k]=(rf[k]||0)+r.VALOR}});
+  Object.entries(rf).forEach(([k,v])=>{const[o,m]=k.split('|');
+    add(o,m,'01.04.01.01',v*(+P.PCT_OVERHEAD||0),'% Overhead x receita',`Overhead ${((+P.PCT_OVERHEAD||0)*100).toFixed(1)}% da receita`,v,'R$ de receita');
+    add(o,m,'01.04.01.02',v*(+P.PCT_CONTINGENCIA||0),'% Contingência x receita',`Contingência ${((+P.PCT_CONTINGENCIA||0)*100).toFixed(1)}% da receita`,v,'R$ de receita');
+    if(String(P.PROJETAR_IMPOSTOS||'').toUpperCase()==='SIM'){add(o,m,'01.04.02.01',v*(+P.PCT_ISS||0),'Impostos (premissa)',`ISS ${((+P.PCT_ISS||0)*100).toFixed(2)}% da receita`,v,'R$ de receita');
+      add(o,m,'01.04.02.02',v*(+P.PCT_PIS_COFINS||0),'Impostos (premissa)',`PIS/COFINS ${((+P.PCT_PIS_COFINS||0)*100).toFixed(2)}% da receita`,v,'R$ de receita')}});
+  // itens "+"
+  const comItens=new Set();
+  (cfg.itens||[]).forEach(it=>{if(!it.oi||!it.wbs)return;
+    FUT.forEach(m=>{const r=itemMes(cfg,D,it,m);if(!r||!r.v)return;
+      add(it.oi,m,it.wbs,r.v,'Item: '+(it.nome||'sem nome'),`${it.nome||''}: ${+r.q.toFixed(2)} × R$ ${r.u.toFixed(2)}${r.fr!==1?' × reajuste '+r.fr.toFixed(3):''}`,r.q,it.modo==='HIST'?'pelo histograma':'quantidade')})});
+  Object.entries(cfg.rubricas||{}).forEach(([k,v])=>{if(v&&(v.fonte==='ZERO'||v.fonte==='ITENS'))comItens.add(k)});
+  const comp=Object.values(cmp);return {rows,comp,memo,comItens,cal,FUT,hhOI}}
+// aplica sobre o custo do motor: troca as origens automáticas, troca a rubrica que tem itens e refaz o rateio do compartilhado
+function aplicar(D,cfg,CUS){
+  const r=calcular(D,cfg);const SH=D.oi_sh;const ref=D.ref;
+  let C=CUS.filter(c=>!(c.TIPO==='PROJ'&&(c.RATEIO||ORIG_AUTO.has(c.ORIGEM)||r.comItens.has(c.OI+'|'+c.WBS))));
+  C=C.concat(r.rows);
+  // rateio do compartilhado pela HH prevista de cada OI no mês
+  const sh={};C.forEach(c=>{if(c.TIPO==='PROJ'&&c.OI===SH&&!c.RATEIO&&c.MES>ref){const k=c.MES+'|'+c.WBS;sh[k]=(sh[k]||0)+c.VALOR}});
+  const novos=[];const out={};
+  Object.entries(sh).forEach(([k,v])=>{const[m,w]=k.split('|');const ch=r.hhOI[m]||{};const ks=Object.entries(ch).filter(([o,h])=>o!==SH&&h>0);const t=ks.reduce((s,[,h])=>s+h,0);if(!t)return;
+    ks.forEach(([o,h])=>{const val=v*h/t;if(Math.abs(val)>1e-9)novos.push({OI:o,MES:m,WBS:w,TIPO:'PROJ',ORIGEM:'Rateio '+SH+' (HH previsto)',RATEIO:true,VALOR:val})});
+    const wo=w.startsWith('01.01')?'01.02.05.01':'01.02.05.02';const kk=m+'|'+wo;out[kk]=(out[kk]||0)+v});
+  Object.entries(out).forEach(([k,v])=>{const[m,w]=k.split('|');novos.push({OI:SH,MES:m,WBS:w,TIPO:'PROJ',ORIGEM:'ND interna projetada (saída)',RATEIO:true,VALOR:-v})});
+  C=C.concat(novos);
+  return Object.assign(r,{C})}
+return {calcular,aplicar,calendario,fator,itemMes,itemQtdMes,precoSw,pv,ORIG_AUTO,mAdd}})();
+
+
+// ---------- Projeções: premissas, tabelas e itens (admin) ----------
+const clone=o=>JSON.parse(JSON.stringify(o));
+const CFGST=window.__cfgStore||{local:true,
+  load:async()=>{try{return JSON.parse(localStorage.getItem('painelCfg')||'null')}catch(e){return null}},
+  save:async c=>{try{localStorage.setItem('painelCfg',JSON.stringify(c))}catch(e){return {error:{message:'o navegador não deixou gravar'}}}return {error:null,em:new Date().toISOString(),por:'prévia local'}}};
+function mergeCfg(c,b){if(!b)return c;if(!c)return clone(b);
+  const ks={premissas:'k',funcoes:'S',efetivo:'V',softwares:'N',beneficios:'C',planos:'C',faixas_vt:'C',encargos:'W'};c._novos=[];
+  Object.entries(ks).forEach(([s,k])=>{c[s]=Array.isArray(c[s])?c[s]:[];const tem=new Set(c[s].map(x=>x[k]));(b[s]||[]).forEach(x=>{if(!tem.has(x[k])){c[s].push(clone(x));c._novos.push(s+': '+x[k])}})});
+  ['feriados','reajustes','itens'].forEach(s=>{if(!Array.isArray(c[s]))c[s]=clone(b[s]||[])});c.cal_ajuste=c.cal_ajuste||{};c.rubricas=c.rubricas||{};
+  const bp=Object.fromEntries((b.premissas||[]).map(p=>[p.k,p]));c.premissas.forEach(p=>{const q=bp[p.k];if(q){p.d=q.d;p.g=q.g;p.uso=q.uso;p.un=q.un}});return c}
+let CFG=null,CFG_SUJO=false,CFG_INFO=D.cfg_info||null;
+if(D.cfg0&&D.hv){let s=D.cfg_site||null;if(!s&&CFGST.local){try{s=JSON.parse(localStorage.getItem('painelCfg')||'null')}catch(e){}}CFG=mergeCfg(s?clone(s):null,D.cfg0)}
+let ENGR=null;
+window.addEventListener('beforeunload',e=>{if(CFG_SUJO){e.preventDefault();e.returnValue=''}});
+function baseCusto(){if(!CFG)return CUS0;ENGR=ENG.aplicar(D,CFG,CUS0);return ENGR.C}
+function baseComp(){if(!CFG||!ENGR)return D.comp0||[];return (D.comp0||[]).filter(c=>!ENG.ORIG_AUTO.has(c.ORIGEM)).concat(ENGR.comp.filter(c=>ENG.ORIG_AUTO.has(c.ORIGEM)||c.ORIGEM.startsWith('Item: ')||c.ORIGEM.startsWith('Impostos')))}
+let PSUB=(()=>{try{return sessionStorage.getItem('painelProjSub')||'rub'}catch(e){return 'rub'}})();
+const PSUBS=[['rub','Rubricas'],['prem','Premissas'],['cal','Calendário e feriados'],['reaj','Reajustes'],['fun','Funções e salários'],['enc','Encargos'],['ben','Benefícios'],['efe','Efetivo'],['sw','Softwares e preços'],['man','Como cada rubrica é projetada']];
+const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const COMO=w=>{
+  if(w.startsWith('01.01.01'))return ['A','Histograma × salário da função × reajuste CCT'];
+  if(w.startsWith('01.01.02'))return ['B','% do encargo × folha do mês (CLT e estagiário separados)'];
+  const m={'01.01.03.01':['C','Pessoas × dias úteis × VR/dia × reajuste'],'01.01.03.02':['C','CLT × VA (+ cesta natalina em dezembro) × reajuste'],'01.01.03.03':['C','(CLT + estag) × VT/dia × dias úteis − desconto % da folha'],
+   '01.01.03.04':['E','Itens'],'01.01.03.05':['D','Plano de saúde da vaga (Efetivo)'],'01.01.03.06':['C','Pessoas × seguro de vida'],'01.01.03.07':['D','Ajuda de custo da vaga (Efetivo)'],
+   '01.02.01.01':['C','(Entradas + saídas + periódicos de 12 meses) × exame'],'01.02.02.02':['D','Veículo da vaga (Efetivo) + itens'],'01.02.04.02':['F','Licenças: itens ligados ao histograma'],'01.02.04.01':['F','Equipamentos: itens por vaga nova ou por pessoa'],
+   '01.02.05.01':['R','Rateio automático do '+D.oi_sh+' (HH previsto)'],'01.02.05.02':['R','Rateio automático do '+D.oi_sh+' (HH previsto)'],'01.04.01.01':['B','% de overhead × receita do mês'],'01.04.01.02':['B','% de contingência × receita do mês'],
+   '01.04.02.01':['B','% ISS × receita (se ligado nas Premissas)'],'01.04.02.02':['B','% PIS/COFINS × receita (se ligado nas Premissas)']};
+  if(m[w])return m[w];if(w.startsWith('01.02.05'))return ['R','Notas de débito: rateio automático do '+D.oi_sh+' (HH previsto)'];if(w.startsWith('01.03'))return ['G','Contratos de fornecedores (MF)'];if(/^01\.02\.03\.(09|10|11|12)/.test(w))return ['F','Itens: R$ por pessoa ou valor fixo'];return ['E','Itens (valor × quantidade)']};
+function recalc(rerender){CFG_SUJO=true;if(rerender)render();else{aplicaEV();kpis();barraCfg()}}
+function barraCfg(){const b=document.getElementById('projBar');if(!b||!CFG)return;
+  const d={};D.ois.forEach(o=>{let a=0,z=0;CUS0.forEach(c=>{if(c.OI===o&&c.TIPO==='PROJ')a+=c.VALOR});CUS1.forEach(c=>{if(c.OI===o&&c.TIPO==='PROJ')z+=c.VALOR});d[o]=z-a});
+  let tot=Object.entries(d).filter(([o])=>o!==D.oi_sh).reduce((s,[,v])=>s+v,0);if(Math.abs(tot)<0.5)tot=0;
+  b.innerHTML=`<span class="${CFG_SUJO?'neg':''}">${CFG_SUJO?'● Alterações não salvas':(CFG_INFO?'Salvo '+(CFG_INFO.por?'por '+esc(CFG_INFO.por)+' ':'')+(CFG_INFO.em?'em '+new Date(CFG_INFO.em).toLocaleString('pt-BR'):''):(D.cfg_site?'Configuração salva':'Configuração inicial copiada do motor (ainda não salva)'))}</span>
+   <span class="muted">Projetado do site − motor: <b>${tot>=0?'+':''}${R(tot)}</b> nas obras</span><span class="sp"></span>
+   <button class="btnx" id="cfgDesc"${CFG_SUJO?'':' disabled'}>Descartar</button> <button class="btnx pri" id="cfgSalvar"${CFG_SUJO?'':' disabled'}>Salvar</button>`;
+  document.getElementById('cfgSalvar').onclick=async()=>{const bt=document.getElementById('cfgSalvar');bt.disabled=true;bt.textContent='Salvando…';const c=clone(CFG);delete c._novos;
+    const r=await CFGST.save(c);if(r.error){bt.disabled=false;bt.textContent='Salvar';return alert('Não salvou: '+(r.error.message||r.error))}
+    CFG_SUJO=false;CFG_INFO={em:r.em||new Date().toISOString(),por:r.por||''};D.cfg_site=c;barraCfg()};
+  document.getElementById('cfgDesc').onclick=()=>{if(!confirm('Descartar as alterações desde o último salvamento?'))return;CFG=mergeCfg(D.cfg_site?clone(D.cfg_site):null,D.cfg0);CFG_SUJO=false;render()}}
 function telaProj(){
   const box=document.getElementById('projBox');
-  if(SEL==='CONSOLIDADO'){box.innerHTML='<div class="empty">Escolha uma OI no topo para lançar ou revisar a projeção das rubricas.</div>';return}
-  const o=SEL;const ult=[0,1,2].map(i=>addMes(D.ref,-i));const ag={};
-  CUS0.forEach(c=>{if(c.OI!==o||c.RATEIO)return;const a=ag[c.WBS]||(ag[c.WBS]={inc:0,u3:0,pj:0});if(c.TIPO==='REAL'){a.inc+=c.VALOR;if(ult.includes(c.MES))a.u3+=c.VALOR}else a.pj+=c.VALOR});
-  const pm=Object.fromEntries(PMAN.filter(q=>q.oi===o).map(q=>[q.wbs,q]));
-  const todas=document.getElementById('projTodas')&&document.getElementById('projTodas').checked;
-  const folhas=D.estrutura.filter(e=>!D.estrutura.some(z=>z.WBS!==e.WBS&&z.WBS.startsWith(e.WBS+'.'))).map(e=>e.WBS).filter(w=>!w.startsWith('01.02.05')&&!w.startsWith('01.04.01'));
-  const lista=folhas.filter(w=>todas||pm[w]||(ag[w]&&(Math.abs(ag[w].inc)>1||Math.abs(ag[w].pj)>1)));
-  const al=w=>ag[w]&&Math.abs(ag[w].inc)>1&&Math.abs(ag[w].pj)<1&&!pm[w]?0:1;lista.sort((a,b)=>al(a)-al(b)||(a<b?-1:1));
-  const fut=mesesFut();const fimOI=CUS0.filter(c=>c.OI===o&&c.TIPO==='PROJ').reduce((m,c)=>c.MES>m?c.MES:m,'')||fut[fut.length-1];const opt=sel=>fut.map(m=>`<option value="${m}"${m===sel?' selected':''}>${mesLbl(m)}</option>`).join('');
-  const semPj=lista.filter(w=>ag[w]&&Math.abs(ag[w].inc)>1&&Math.abs(ag[w].pj)<1&&!pm[w]).length;
-  let h=`<p class="hint">${semPj?'<b class="neg">'+semPj+' rubricas com incorrido e sem projeção.</b> ':''}A projeção lançada aqui <b>substitui</b> a do motor para a rubrica nesta OI e aparece na hora em todas as telas.${o===D.oi_sh?' No '+D.oi_sh+' ela também é rateada entre as OIs pelas horas do histograma.':''}</p>`;
-  h+='<div class="tbl-wrap"><table class="proj"><tr><th>Rubrica</th><th>Incorrido</th><th>Média últ. 3 meses</th><th>Projetado (motor)</th><th>Projetado (site)</th><th>Forma</th><th>Valor (R$)</th><th>De</th><th>Até</th><th>Observação</th><th></th></tr>';
-  lista.forEach(w=>{const a=ag[w]||{inc:0,u3:0,pj:0};const q=pm[w]||{};const vm=q.metodo?valorMes(Object.assign({oi:o,wbs:w},q)):null;const met=q.metodo||'MENSAL';
-    const alerta=Math.abs(a.inc)>1&&Math.abs(a.pj)<1&&!q.metodo;
-    h+=`<tr data-w="${w}" class="${alerta?'alerta':''}${q.metodo?' feito':''}"><td class="rl">${w} ${desc[w]||''}${w.startsWith('01.01')?' <span class="tag" title="Pessoal: o HH continua vindo do histograma">pessoal</span>':''}</td><td>${R(a.inc)}</td><td>${R(a.u3/3)}</td><td>${R(a.pj)}</td><td>${vm?R(vm.v*vm.ms.length):'–'}</td>
-      <td><select class="pm"><option value="MENSAL"${met==='MENSAL'?' selected':''}>R$ por mês</option><option value="TOTAL"${met==='TOTAL'?' selected':''}>Total no período</option><option value="MEDIA"${met==='MEDIA'?' selected':''}>Média dos últimos N meses</option></select></td>
-      <td><input class="pv" type="number" step="0.01" value="${met==='MEDIA'?(q.n||3):(q.valor??'')}" placeholder="${met==='MEDIA'?'N meses':'R$'}"></td>
-      <td><select class="pi">${opt(q.ini||fut[0])}</select></td><td><select class="pf">${opt(q.fim||fimOI)}</select></td>
-      <td><input class="po" type="text" value="${(q.obs||'').replace(/"/g,'&quot;')}" placeholder="premissa"></td>
-      <td class="acts"><button class="btnx ps">Salvar</button>${q.metodo?' <button class="btnx pd" title="Voltar para a projeção do motor">Remover</button>':''}</td></tr>`});
-  h+='</table></div>';
-  h+=`<p class="legend-note">${STORE.local?'Prévia local: o que você salvar aqui fica só neste navegador. No site, grava no Supabase (tabela painel_projecoes) e vale para todos.':'Grava no Supabase. Quem alterou e quando fica registrado.'} No fechamento seguinte, o motor lê estas projeções e recalcula tudo (rateio, cenários, Radar).</p>`;
-  box.innerHTML=h;
-  box.querySelectorAll('tr[data-w]').forEach(tr=>{const w=tr.dataset.w;const g=c=>tr.querySelector(c);
-    g('.pm').onchange=()=>{g('.pv').placeholder=g('.pm').value==='MEDIA'?'N meses':'R$';if(g('.pm').value==='MEDIA'&&!g('.pv').value)g('.pv').value=3};
-    g('.ps').onclick=async()=>{const met=g('.pm').value,val=parseFloat(g('.pv').value);if(isNaN(val))return alert('Preencha o valor.');if(g('.pi').value>g('.pf').value)return alert('O mês inicial é depois do final.');
-      const r={oi:o,wbs:w,metodo:met,valor:met==='MEDIA'?null:val,n:met==='MEDIA'?Math.max(1,Math.round(val)):null,ini:g('.pi').value,fim:g('.pf').value,obs:g('.po').value.trim()||null};
-      g('.ps').disabled=true;g('.ps').textContent='Salvando…';const {error}=await STORE.save(r);if(error){g('.ps').disabled=false;g('.ps').textContent='Salvar';return alert('Não salvou: '+(error.message||error))}
-      PMAN=PMAN.filter(x=>!(x.oi===o&&x.wbs===w)).concat([r]);render()};
-    const d=g('.pd');if(d)d.onclick=async()=>{if(!confirm('Remover a projeção do site desta rubrica? Volta a valer a do motor.'))return;const {error}=await STORE.del(o,w);if(error)return alert('Não removeu: '+(error.message||error));PMAN=PMAN.filter(x=>!(x.oi===o&&x.wbs===w));render()}});
+  if(!CFG){box.innerHTML='<div class="empty">Este fechamento foi gerado por uma versão antiga do motor, sem o histograma por vaga. Rode o motor novo e carregue o fechamento de novo para lançar as projeções aqui.</div>';return}
+  let h='<div class="projbar" id="projBar"></div><nav class="subtabs" role="tablist">'+PSUBS.map(([k,l])=>`<button class="stab" role="tab" data-s="${k}" aria-selected="${k===PSUB}">${l}</button>`).join('')+'</nav><div id="projSub"></div>';
+  box.innerHTML=h;box.querySelectorAll('.stab').forEach(b=>b.onclick=()=>{PSUB=b.dataset.s;try{sessionStorage.setItem('painelProjSub',PSUB)}catch(e){};telaProj()});
+  barraCfg();const s=document.getElementById('projSub');
+  ({rub:subRub,prem:subPrem,cal:subCal,reaj:subReaj,fun:subFun,enc:subEnc,ben:subBen,efe:subEfe,sw:subSw,man:subMan}[PSUB]||subRub)(s);
 }
+// editor de tabela genérico: cols=[{k,l,t:'txt'|'num'|'pct'|'sel'|'mes'|'ro',o:[opções],w}]
+function tabEd(el,cols,rows,{onAdd,onDel,vazio,ro}={}){
+  let h='<div class="tbl-wrap"><table class="ed"><tr>'+cols.map(c=>`<th${c.w?` style="min-width:${c.w}px"`:''}>${c.l}</th>`).join('')+(onDel?'<th></th>':'')+'</tr>';
+  if(!rows.length)h+=`<tr><td colspan="${cols.length+1}" class="muted">${vazio||'Nada cadastrado.'}</td></tr>`;
+  rows.forEach((r,i)=>{h+='<tr>'+cols.map(c=>{const v=typeof c.get==='function'?c.get(r):r[c.k];
+    if(c.t==='ro'||ro)return `<td class="${c.n?'n':''}">${c.f?c.f(v,r):esc(v)}</td>`;
+    if(c.t==='sel')return `<td><select data-i="${i}" data-k="${c.k}">${(typeof c.o==='function'?c.o(r):c.o).map(o=>{const[val,lab]=Array.isArray(o)?o:[o,o];return `<option value="${esc(val)}"${String(v??'')===String(val)?' selected':''}>${esc(lab)}</option>`}).join('')}</select></td>`;
+    if(c.t==='pct')return `<td><input data-i="${i}" data-k="${c.k}" data-t="pct" type="number" step="any" value="${v==null||v===''?'':+(v*100).toFixed(6)}" class="n"></td>`;
+    if(c.t==='num')return `<td><input data-i="${i}" data-k="${c.k}" data-t="num" type="number" step="any" value="${v==null?'':v}" class="n"></td>`;
+    if(c.t==='mes')return `<td><input data-i="${i}" data-k="${c.k}" type="month" value="${esc(v||'')}"></td>`;
+    return `<td><input data-i="${i}" data-k="${c.k}" type="text" value="${esc(v)}"></td>`}).join('')+(onDel?`<td><button class="btnx del" data-i="${i}" title="Excluir">✕</button></td>`:'')+'</tr>'});
+  h+='</table></div>'+(onAdd?'<button class="btnx add">+ Adicionar linha</button>':'');el.innerHTML=h;
+  el.querySelectorAll('input[data-k],select[data-k]').forEach(inp=>inp.onchange=()=>{const r=rows[+inp.dataset.i];const c=cols.find(x=>x.k===inp.dataset.k);let v=inp.value;
+    if(inp.dataset.t==='pct')v=v===''?null:+v/100;else if(inp.dataset.t==='num')v=v===''?null:+v;if(c.set)c.set(r,v);else r[inp.dataset.k]=v;recalc(!!c.re)});
+  el.querySelectorAll('.del').forEach(b=>b.onclick=()=>{onDel(+b.dataset.i);recalc(true)});
+  const a=el.querySelector('.add');if(a)a.onclick=()=>{onAdd();recalc(true)}}
+const PREM_LBL={HORAS_DIA:'Horas por dia útil',FATOR_ESTAG:'Fator de jornada do estagiário',UF_OBRA:'UF da obra',MUN_OBRA:'Município da obra',DESC_VT:'Desconto do VT',FAIXA_VT_PADRAO:'Faixa de VT padrão',
+ PCT_OVERHEAD:'% Overhead',PCT_CONTINGENCIA:'% Contingência',PCT_ISS:'% ISS',PCT_PIS_COFINS:'% PIS/COFINS',PROJETAR_IMPOSTOS:'Projetar impostos',ADIC_NOTURNO:'Adicional noturno',ADIC_PERICUL:'Periculosidade',
+ AD_HE060:'Hora extra 60%',AD_HE100:'Hora extra 100%',MARGEM_META:'Margem meta',PCT_HH_MOD:'% HH MOD sobre a receita',IGPM_PROJ:'IGP-M projetado',PRAZO_RECEB:'Prazo de recebimento',PRAZO_PESSOAL:'Prazo de pagamento do pessoal',
+ PRAZO_DESPESAS:'Prazo de pagamento das despesas',PRAZO_SUBCONT:'Prazo de pagamento dos subcontratados',PRAZO_IMPOSTOS:'Prazo de recolhimento dos impostos',CEN_PESS_CUSTO:'Pessimista: % sobre o custo',CEN_OTIM_CUSTO:'Otimista: % sobre o custo',
+ CEN_PESS_RECEITA:'Pessimista: % sobre a receita',CEN_OTIM_RECEITA:'Otimista: % sobre a receita'};
+const premLbl=k=>PREM_LBL[k]||String(k).replace(/^PCT_/,'% ').replace(/_/g,' ').toLowerCase().replace(/^./,c=>c.toUpperCase());
+function subPrem(el){
+  const U={calc:['entra no cálculo','ok'],motor:['motor, no próximo fechamento','warn'],fc:['fluxo de caixa (em confecção)','warn'],info:['informativo','muted']};
+  const gs=[...new Set(CFG.premissas.map(p=>p.g))];
+  el.innerHTML='<p class="hint">Tudo que muda a projeção sem depender de rubrica. O que está marcado "entra no cálculo" muda os números na hora (Radar, Resumo, Cenários). Os percentuais são digitados em %.</p>'+gs.map((g,gi)=>`<h3 class="h3">${esc(g)}</h3><div class="pgrid" data-g="${gi}"></div>`).join('');
+  gs.forEach((g,gi)=>{const box=el.querySelector(`[data-g="${gi}"]`);CFG.premissas.filter(p=>p.g===g).forEach(p=>{const pct=p.un==='%'||p.un==='% a.a.';const num=typeof p.v==='number';
+    const d=document.createElement('div');d.className='prem';const u=U[p.uso]||U.info;
+    d.innerHTML=`<label>${esc(premLbl(p.k))}${ii('prem.'+p.k,premLbl(p.k),p.d)}</label><div class="pin">${p.un==='SIM/NAO'?`<select><option${p.v==='SIM'?' selected':''}>SIM</option><option${p.v!=='SIM'?' selected':''}>NAO</option></select>`:`<input type="${num?'number':'text'}" step="any" value="${pct&&num?+(p.v*100).toFixed(6):esc(p.v)}">`}<span class="un">${esc(pct?'%':p.un)}</span></div><span class="uso ${u[1]}">${u[0]}</span>`;
+    const inp=d.querySelector('input,select');inp.onchange=()=>{let v=inp.value;if(num)v=v===''?null:+v;if(pct&&num&&v!=null)v=v/100;p.v=v;recalc(false)};box.appendChild(d)})})}
+function subCal(el){
+  const ms=D.hv_meses.filter(m=>m>=D.hv_meses[0]);const c=ENG.calendario(CFG,ms);const P=ENG.pv(CFG);
+  el.innerHTML=`<p class="hint">Dias úteis calculados de segunda a sexta, tirando os feriados abaixo (nacionais, os estaduais da UF <b>${esc(P.UF_OBRA)}</b> e os municipais de <b>${esc(P.MUN_OBRA)}</b>; UF e município ficam nas Premissas). HH normal = dias úteis × ${P.HORAS_DIA} h; HH estagiário = HH normal × ${P.FATOR_ESTAG}. Se o mês tiver ponte ou recesso, digite os dias úteis certos em "Dias úteis corrigidos" (vazio = usa o calculado).</p><div class="grid2"><div><h3 class="h3">Feriados</h3><div id="fer"></div></div><div><h3 class="h3">Meses</h3><div id="cms"></div></div></div>`;
+  tabEd(el.querySelector('#fer'),[{k:'n',l:'Feriado',w:170,re:1},{k:'t',l:'Tipo',t:'sel',o:['Fixo','Móvel'],re:1},{k:'d',l:'Dia',t:'num',re:1},{k:'m',l:'Mês',t:'num',re:1},{k:'p',l:'Dias após a Páscoa',t:'num',re:1},{k:'ab',l:'Abrangência',t:'sel',o:['Nacional','Estadual','Municipal'],re:1},{k:'uf',l:'UF',re:1},{k:'mun',l:'Município',re:1}],
+    CFG.feriados,{onAdd:()=>CFG.feriados.push({n:'Novo feriado',t:'Fixo',d:null,m:null,p:null,ab:'Municipal',uf:P.UF_OBRA,mun:P.MUN_OBRA}),onDel:i=>CFG.feriados.splice(i,1)});
+  const rows=ms.map(m=>({m,du:c[m].du_calc,aj:CFG.cal_ajuste[m]??null,hn:c[m].hhN,he:c[m].hhE}));
+  tabEd(el.querySelector('#cms'),[{k:'m',l:'Mês',t:'ro',f:v=>mesLbl(v)+(v<=D.ref?' <span class="muted">real</span>':'')},{k:'du',l:'Dias úteis',t:'ro',n:1},{k:'aj',l:'Dias úteis corrigidos',t:'num',re:1,set:(r,v)=>{if(v==null||v<0||v>31)delete CFG.cal_ajuste[r.m];else CFG.cal_ajuste[r.m]=v}},{k:'hn',l:'HH normal',t:'ro',n:1,f:v=>fmt2.format(v)},{k:'he',l:'HH estag.',t:'ro',n:1,f:v=>fmt2.format(v)}],rows)}
+function subReaj(el){
+  el.innerHTML='<p class="hint">Cada data-base é uma linha. Preencha o % previsto; quando sair a CCT, o % oficial substitui. Os reajustes se acumulam. SALÁRIOS corrige a remuneração (e os encargos); BENEFÍCIOS corrige VR, VA e cestas. O reajuste da receita (IGP-M) continua no motor.</p><div id="rj"></div><h3 class="h3">Fator acumulado</h3><div id="rjf"></div>';
+  tabEd(el.querySelector('#rj'),[{k:'tipo',l:'Tipo',t:'sel',o:['SALARIOS','BENEFICIOS'],re:1},{k:'desc',l:'Descrição',w:200},{k:'data',l:'Data-base',t:'mes',re:1},{k:'prev',l:'% previsto',t:'pct',re:1},{k:'ofic',l:'% oficial',t:'pct',re:1}],CFG.reajustes,
+    {onAdd:()=>CFG.reajustes.push({tipo:'SALARIOS',desc:'CCT',data:null,prev:null,ofic:null}),onDel:i=>CFG.reajustes.splice(i,1)});
+  const anos=[...new Set(D.hv_meses.filter(m=>m>D.ref).map(m=>m.slice(0,4)))];
+  el.querySelector('#rjf').innerHTML='<div class="tbl-wrap"><table class="ed"><tr><th></th>'+anos.map(a=>`<th>dez/${a.slice(2)}</th>`).join('')+'</tr>'+['SALARIOS','BENEFICIOS'].map(t=>`<tr><td>${t==='SALARIOS'?'Salários':'Benefícios'}</td>`+anos.map(a=>`<td class="n">${ENG.fator(CFG,t,a+'-12').toFixed(4)}</td>`).join('')+'</tr>').join('')+'</table></div>'}
+function usoSigla(){const u={};const fut=D.hv_meses.filter(m=>m>D.ref);D.hv.forEach(r=>{const s=fut.reduce((a,m)=>a+(+r.F[m]||0),0);if(s>0)u[r.S]=(u[r.S]||0)+s});return u}
+function subFun(el){const u=usoSigla();let q='';
+  el.innerHTML='<p class="hint">Salário mensal por função (sem reajuste; o reajuste vem da aba Reajustes). O regime define encargos e benefícios. "Pessoa-mês futura" mostra quanto cada função pesa na projeção.</p><input class="busca" placeholder="Procurar função ou sigla"> <label class="chk"><input type="checkbox" id="soUso" checked> só funções com gente prevista</label><div id="tf"></div>';
+  const draw=()=>{const so=el.querySelector('#soUso').checked;const rows=CFG.funcoes.filter(f=>(!so||u[f.S])&&(!q||(f.S+' '+f.D).toLowerCase().includes(q)));
+    tabEd(el.querySelector('#tf'),[{k:'S',l:'Sigla',t:'ro'},{k:'D',l:'Função',w:220},{k:'G',l:'Regime',t:'sel',o:['CLT','PJ','ESTAG'],re:0},{k:'SAL',l:'Salário (R$/mês)',t:'num'},{k:'_u',l:'Pessoa-mês futura',t:'ro',n:1,get:r=>u[r.S]||0,f:v=>v?fmt2.format(v):'–'}],rows,
+      {onAdd:()=>{const s=prompt('Sigla da função nova (igual ao histograma):');if(s)CFG.funcoes.push({S:s.trim(),D:'',G:'PJ',SAL:0})}})};
+  el.querySelector('.busca').oninput=e=>{q=e.target.value.toLowerCase();draw()};el.querySelector('#soUso').onchange=draw;draw()}
+function subEnc(el){
+  el.innerHTML='<p class="hint">Percentuais sobre a folha do mês (salário projetado). PJ fica em zero. Validar com RH/contabilidade 1 vez por ano.</p><div id="te"></div>';
+  const tot=g=>CFG.encargos.reduce((s,e)=>s+(+e[g]||0),0);
+  tabEd(el.querySelector('#te'),[{k:'W',l:'Rubrica',t:'ro'},{k:'D',l:'Encargo',t:'ro'},{k:'CLT',l:'CLT %',t:'pct',re:1},{k:'ESTAG',l:'Estagiário %',t:'pct',re:1},{k:'PJ',l:'PJ %',t:'pct',re:1}],CFG.encargos);
+  el.querySelector('#te').insertAdjacentHTML('beforeend',`<p class="legend-note">Total: CLT ${P(tot('CLT'))} · Estagiário ${P(tot('ESTAG'))} · PJ ${P(tot('PJ'))}</p>`)}
+function subBen(el){
+  el.innerHTML='<p class="hint">Valores padrão (sem reajuste; o reajuste vem da aba Reajustes, tipo BENEFÍCIOS). Mês de pagamento: 0 = todo mês; 12 = só em dezembro.</p><h3 class="h3">Benefícios</h3><div id="b1"></div><div class="grid2"><div><h3 class="h3">Planos de saúde (parte da empresa)</h3><div id="b2"></div></div><div><h3 class="h3">Faixas de vale transporte</h3><div id="b3"></div></div></div>';
+  tabEd(el.querySelector('#b1'),[{k:'C',l:'Código',t:'ro'},{k:'D',l:'Benefício',w:220},{k:'V',l:'Valor (R$)',t:'num'},{k:'U',l:'Unidade'},{k:'MP',l:'Mês de pagamento',t:'num'}],CFG.beneficios);
+  tabEd(el.querySelector('#b2'),[{k:'C',l:'Plano'},{k:'D',l:'Operadora'},{k:'V',l:'R$/mês titular',t:'num'}],CFG.planos,{onAdd:()=>CFG.planos.push({C:'PS-'+String(CFG.planos.length).padStart(2,'0'),D:'',V:0}),onDel:i=>CFG.planos.splice(i,1)});
+  tabEd(el.querySelector('#b3'),[{k:'C',l:'Faixa'},{k:'D',l:'Trajeto'},{k:'V',l:'R$/dia (ida+volta)',t:'num'}],CFG.faixas_vt,{onAdd:()=>CFG.faixas_vt.push({C:'VT-0'+(CFG.faixas_vt.length+1),D:'',V:0}),onDel:i=>CFG.faixas_vt.splice(i,1)})}
+function subEfe(el){const fut=D.hv_meses.filter(m=>m>D.ref);const pm={};D.grade.forEach(g=>{const i0=D.hv_meses.indexOf(fut[0]);const s=g.F.slice(i0).reduce((a,b)=>a+b,0);if(s>0)pm[g.V]=(pm[g.V]||0)+s});
+  const oiDe={};D.grade.forEach(g=>oiDe[g.V]=g.O);let q='';
+  el.innerHTML=`<p class="hint">Uma linha por vaga (igual à aba Efetivo do ACP). Plano de saúde, ajuda de custo e locação de veículo entram na projeção em todo mês que a vaga tem gente no histograma. ${SEL==='CONSOLIDADO'?'Mostrando todas as OIs.':'Mostrando a '+SEL+' (troque a OI no topo).'}</p><input class="busca" placeholder="Procurar vaga"> <label class="chk"><input type="checkbox" id="soFut" checked> só vagas com gente prevista</label><div id="tv"></div>`;
+  const draw=()=>{const so=el.querySelector('#soFut').checked;const rows=CFG.efetivo.filter(e=>{const o=oiDe[e.V]||e.O;return (SEL==='CONSOLIDADO'||o===SEL)&&(!so||pm[e.V])&&(!q||String(e.V).toLowerCase().includes(q))});
+    tabEd(el.querySelector('#tv'),[{k:'V',l:'Vaga',t:'ro'},{k:'_o',l:'OI (histograma)',t:'ro',get:r=>oiDe[r.V]||r.O},{k:'T',l:'Contratação',t:'sel',o:['CLT','PJ','ESTAG','A DEFINIR']},{k:'PS',l:'Plano',t:'sel',o:()=>[['','—'],...CFG.planos.map(p=>[p.C,p.C+' '+(p.D||'')+' '+R(p.V)])]},{k:'AJ',l:'Ajuda de custo (R$/mês)',t:'num'},{k:'VE',l:'Veículo (R$/mês)',t:'num'},{k:'VT',l:'Recebe VT',t:'sel',o:[['','—'],'SIM','NÃO']},{k:'FX',l:'Faixa VT',t:'sel',o:()=>[['','—'],...CFG.faixas_vt.map(f=>f.C)]},{k:'_p',l:'Pessoa-mês futura',t:'ro',n:1,get:r=>pm[r.V]||0,f:v=>v?fmt2.format(v):'–'}],rows,{vazio:'Nenhuma vaga nesse filtro.'});
+    const sem=Object.keys(pm).filter(v=>!CFG.efetivo.some(e=>e.V===v)&&(SEL==='CONSOLIDADO'||oiDe[v]===SEL));
+    if(sem.length)el.querySelector('#tv').insertAdjacentHTML('afterbegin',`<p class="neg">Vagas com gente prevista e sem linha no Efetivo (plano, ajuda e veículo zerados): ${sem.join(', ')} <button class="btnx" id="addSem">Criar linhas</button></p>`);
+    const b=el.querySelector('#addSem');if(b)b.onclick=()=>{sem.forEach(v=>CFG.efetivo.push({V:v,O:oiDe[v],T:null,PS:null,AJ:null,VE:null,VT:null,FX:null}));recalc(true)}};
+  el.querySelector('.busca').oninput=e=>{q=e.target.value.toLowerCase();draw()};el.querySelector('#soFut').onchange=draw;draw()}
+function subSw(el){
+  el.innerHTML='<p class="hint">Catálogo de preços usado nos itens de Licenças e Softwares. Com preço de lista e modelo, o R$/mês é calculado (lista × câmbio ÷ meses do modelo). Sem lista, vale o R$/mês digitado.</p><div id="ts"></div>';
+  tabEd(el.querySelector('#ts'),[{k:'N',l:'Software',w:170},{k:'MOD',l:'Modelo',t:'sel',o:['Mensal','Trimestral','Anual','Perpétua','-'],re:1},{k:'PL',l:'Preço de lista',t:'num',re:1},{k:'MO',l:'Moeda',t:'sel',o:['BRL','USD','EUR'],re:1},{k:'CB',l:'Câmbio',t:'num',re:1},{k:'V',l:'R$/mês (sem lista)',t:'num',re:1},{k:'_c',l:'R$/mês usado',t:'ro',n:1,get:r=>ENG.precoSw(r),f:v=>fmt2.format(v)},{k:'OBS',l:'Observação',w:220}],CFG.softwares,
+    {onAdd:()=>CFG.softwares.push({N:'Novo software',MOD:'Mensal',PL:null,MO:'BRL',CB:1,V:0,OBS:null}),onDel:i=>{const n=CFG.softwares[i].N;if(CFG.itens.some(t=>t.sw===n)&&!confirm('Há itens usando '+n+'. Excluir mesmo assim? Eles passam a valer R$ 0.'))return;CFG.softwares.splice(i,1)}})}
+function subMan(el){
+  const L=[['A','Histograma × salário','Pessoas previstas no histograma (por vaga e mês) × salário da função × reajuste de salários. Nada a lançar: mexa no histograma e em Funções e salários.'],
+    ['B','% sobre uma base','Encargos = % × folha. Overhead e contingência = % × receita do mês. Impostos = % × receita, se ligado nas Premissas.'],
+    ['C','Pessoas do histograma × valor','VR, VA, cestas, VT, seguro de vida e exames. Os valores vêm de Benefícios; dias úteis do Calendário.'],
+    ['D','Por vaga (Efetivo)','Plano de saúde, ajuda de custo e veículo cadastrados em cada vaga, nos meses em que a vaga tem gente.'],
+    ['E','Itens (valor × quantidade)','Botão "+ Item" na rubrica: nome, valor, quantidade fixa, período, reajuste e meses de pagamento.'],
+    ['F','Itens ligados ao histograma','Igual ao E, mas a quantidade é contada no histograma: por OI, equipe, função e regime, contando pessoas no mês, entradas, saídas ou aniversário de 12 meses, × fator.'],
+    ['G','Contratos de fornecedores (MF)','Ainda vem da aba FORNECEDORES da base (motor). Próximo passo: cadastrar no site.'],
+    ['R','Rateio do '+D.oi_sh,'Tudo que é lançado no '+D.oi_sh+' vai para as obras pela HH prevista de cada uma no mês. Automático.']];
+  el.innerHTML='<p class="hint">Os tipos de cálculo usados na tela Rubricas. Ordem do cálculo: histograma → salários → encargos → benefícios → itens → indiretos sobre a receita → rateio do '+D.oi_sh+'. Os itens somam à projeção que veio do motor, a menos que a rubrica esteja marcada "usar só os itens".</p><div class="tbl-wrap"><table class="ed"><tr><th>Tipo</th><th>Como calcula</th><th>Detalhe</th></tr>'+L.map(l=>`<tr><td><span class="tipo">${l[0]}</span></td><td>${l[1]}</td><td>${l[2]}</td></tr>`).join('')+'</table></div>'}
+// ----- Rubricas: árvore linha mãe → filhas, com itens "+" -----
+let RUB_AB=new Set();
+function subRub(el){
+  if(SEL==='CONSOLIDADO'){const t={};D.ois.forEach(o=>{let a=0,z=0;CUS0.forEach(c=>{if(c.OI===o&&c.TIPO==='PROJ'&&!c.RATEIO)a+=c.VALOR});CUS1.forEach(c=>{if(c.OI===o&&c.TIPO==='PROJ'&&!c.RATEIO)z+=c.VALOR});t[o]=[a,z,CFG.itens.filter(i=>i.oi===o).length]});
+    el.innerHTML='<p class="hint">Escolha uma OI no topo para abrir as rubricas e lançar itens.</p><div class="tbl-wrap"><table class="ed"><tr><th>OI</th><th>Projetado do motor</th><th>Projetado no site</th><th>Diferença</th><th>Itens lançados</th></tr>'+D.ois.map(o=>`<tr><td>${o}</td><td class="n">${R(t[o][0])}</td><td class="n">${R(t[o][1])}</td><td class="n">${R(t[o][1]-t[o][0])}</td><td class="n">${t[o][2]}</td></tr>`).join('')+'</table></div>';return}
+  const o=SEL;const ult=[0,1,2].map(i=>addMes(D.ref,-i));const ag={};
+  CUS1.forEach(c=>{if(c.OI!==o)return;const a=ag[c.WBS]||(ag[c.WBS]={inc:0,u3:0,pj:0,rt:0,org:new Set()});if(c.TIPO==='REAL'){a.inc+=c.VALOR;if(ult.includes(c.MES))a.u3+=c.VALOR}else if(c.RATEIO)a.rt+=c.VALOR;else{a.pj+=c.VALOR;a.org.add(c.ORIGEM)}});
+  const its=w=>CFG.itens.filter(i=>i.oi===o&&i.wbs===w);
+  const fonte=w=>{const a=ag[w];if(COMO(w)[0]==='R')return '<span class="badge">automático</span>';const n=its(w).length;const fz=(CFG.rubricas[o+'|'+w]||{}).fonte;if(fz==='ITENS'||fz==='ZERO')return `<span class="badge ok">só itens (${n})</span>`;const mot=a?[...a.org].filter(x=>!ENG.ORIG_AUTO.has(x)&&!x.startsWith('Item: ')):[];if(n)return `<span class="badge ok">${n} ${n>1?'itens':'item'}${mot.length?' + motor':''}</span>`;if(PMAN.some(q=>q.oi===o&&q.wbs===w))return '<span class="badge">manual</span>';
+    if(!a||!a.org.size)return a&&Math.abs(a.u3)>1?'<span class="badge neg">sem projeção</span>':'<span class="muted">–</span>';
+    const org=[...a.org].filter(x=>!x.startsWith('Item: '));if(org.every(x=>ENG.ORIG_AUTO.has(x)))return '<span class="badge">automático</span>';return `<span class="badge warn" title="${esc(org.join(', '))}">motor: ${esc(org.filter(x=>!ENG.ORIG_AUTO.has(x)).join(', '))}</span>`};
+  const sum=(pref,k)=>Object.entries(ag).filter(([w])=>w===pref||w.startsWith(pref+'.')).reduce((s,[,a])=>s+a[k],0);
+  let h=`<p class="hint">${o} · todas as rubricas da Radar, linha mãe e filhas. Clique na rubrica para ver a memória de cálculo mês a mês e os itens. <b>+ Item</b> lança um custo (valor × quantidade fixa ou contada no histograma). Por padrão os itens <b>somam</b> à projeção que veio do motor; dentro da rubrica dá para trocar para "usar só os itens".</p>`;
+  h+='<div class="tbl-wrap"><table class="rubt"><tr><th>Rubrica</th><th>Tipo'+ii('col.tipo')+'</th><th class="n">Incorrido</th><th class="n">Últ. 3 meses'+ii('col.ult3')+'</th><th class="n">Projetado</th><th class="n">Recebido do '+D.oi_sh+ii('col.recebido')+'</th><th>Fonte'+ii('col.fonte')+'</th><th></th></tr>';
+  D.estrutura.forEach(e=>{const w=e.WBS,lv=e.NIVEL;if(lv<2)return;const filho=D.estrutura.some(z=>z.WBS!==w&&z.WBS.startsWith(w+'.'));
+    if(filho){h+=`<tr class="mae l${lv}"><td colspan="2">${w} ${esc(e.DESCRICAO)}</td><td class="n">${R(sum(w,'inc'))}</td><td class="n">${R(sum(w,'u3')/3)}</td><td class="n">${R(sum(w,'pj'))}</td><td class="n">${R(sum(w,'rt'))}</td><td colspan="2"></td></tr>`;return}
+    const a=ag[w]||{inc:0,u3:0,pj:0,rt:0,org:new Set()};const[tp,cm]=COMO(w);const ab=RUB_AB.has(w);const podeItem=!['A','B','R'].includes(tp)||w==='01.01.02.13';
+    h+=`<tr class="fil${ab?' open':''}" data-w="${w}"><td class="rl">${w} ${esc(e.DESCRICAO)}</td><td><span class="tipo">${tp}</span>${ii('rub.'+w,w+' '+e.DESCRICAO,cm)}</td><td class="n">${R(a.inc)}</td><td class="n">${R(a.u3/3)}</td><td class="n">${R(a.pj)}</td><td class="n">${R(a.rt)}</td><td>${fonte(w)}</td><td class="acts">${podeItem?'<button class="btnx addit">+ Item</button>':''}</td></tr>`;
+    if(ab)h+=`<tr class="det"><td colspan="8">${detRub(o,w)}</td></tr>`});
+  h+='</table></div>';el.innerHTML=h;
+  el.querySelectorAll('tr.fil').forEach(tr=>{const w=tr.dataset.w;tr.querySelector('.rl').onclick=()=>{RUB_AB.has(w)?RUB_AB.delete(w):RUB_AB.add(w);subRub(el)};
+    const b=tr.querySelector('.addit');if(b)b.onclick=()=>editItem({oi:o,wbs:w})});
+  el.querySelectorAll('[data-fz]').forEach(s=>s.onchange=()=>{const k=o+'|'+s.dataset.fz;if(s.value==='ITENS')CFG.rubricas[k]={fonte:'ITENS'};else delete CFG.rubricas[k];recalc(true)});
+  el.querySelectorAll('[data-ed]').forEach(b=>b.onclick=()=>editItem(CFG.itens.find(i=>i.id===b.dataset.ed)));
+  el.querySelectorAll('[data-dl]').forEach(b=>b.onclick=()=>{const it=CFG.itens.find(i=>i.id===b.dataset.dl);if(!confirm('Excluir o item "'+(it.nome||'')+'"?'))return;CFG.itens=CFG.itens.filter(i=>i!==it);recalc(true)});
+  el.querySelectorAll('[data-pm]').forEach(b=>b.onclick=async()=>{const w=b.dataset.pm;if(!confirm('Remover o valor manual antigo desta rubrica?'))return;const {error}=await STORE.del(o,w);if(error)return alert('Não removeu: '+(error.message||error));PMAN=PMAN.filter(x=>!(x.oi===o&&x.wbs===w));render()})}
+function detRub(o,w){
+  const fut=mesesFut();const its=CFG.itens.filter(i=>i.oi===o&&i.wbs===w);let h='';
+  if(its.length){h+='<div class="tbl-wrap"><table class="ed"><tr><th>Item</th><th>Valor unitário</th><th>Quantidade</th><th>Período</th><th class="n">Total projetado</th><th></th></tr>';
+    its.forEach(it=>{let t=0;fut.forEach(m=>{const r=ENG.itemMes(CFG,D,it,m);if(r)t+=r.v});const f=it.filtro||{};
+      const qd=it.modo==='HIST'?`histograma: ${({FTE:'pessoas no mês',ENT:'entradas',SAI:'saídas',ANIV:'aniversário 12 meses'})[f.evento||'FTE']} · ${(f.ois&&f.ois.length?f.ois:[it.oi]).join(', ')}${f.equipes&&f.equipes.length?' · '+f.equipes.join(', '):''}${f.siglas&&f.siglas.length?' · '+f.siglas.join(', '):''}${f.regimes&&f.regimes.length?' · '+f.regimes.join('/'):''} × ${it.fator??1}`:`${it.qtd??0} fixo`;
+      h+=`<tr><td>${esc(it.nome)}${it.obs?' <span class="muted">· '+esc(it.obs)+'</span>':''}</td><td class="n">${it.sw?esc(it.sw)+' · ':''}${fmt2.format(ENG.precoSw?(it.sw?ENG.precoSw((CFG.softwares.find(s=>s.N===it.sw)||{})):+it.valor||0):0)}</td><td>${esc(qd)}</td><td>${it.ini?mesLbl(it.ini):'início'} a ${it.fim?mesLbl(it.fim):'fim'}${it.meses&&it.meses.length?' · meses '+it.meses.join(','):''}${it.reaj&&it.reaj!=='NAO'?' · reajuste '+it.reaj.toLowerCase():''}</td><td class="n">${R(t)}</td><td class="acts"><button class="btnx" data-ed="${it.id}">Editar</button> <button class="btnx" data-dl="${it.id}">Excluir</button></td></tr>`});
+    h+='</table></div>'}
+  {const mv=CUS0.filter(c=>c.OI===o&&c.WBS===w&&c.TIPO==='PROJ'&&!c.RATEIO&&!ENG.ORIG_AUTO.has(c.ORIGEM));const tv=mv.reduce((s,c)=>s+c.VALOR,0);const fz=(CFG.rubricas[o+'|'+w]||{}).fonte;
+   if(mv.length||fz){const og=[...new Set(mv.map(c=>c.ORIGEM))].join(', ');h+=`<p class="hint">Projeção que veio do motor nesta rubrica: <b>${R(tv)}</b>${og?' ('+esc(og)+')':''}. <select data-fz="${w}"><option value="SOMAR"${!fz?' selected':''}>manter e somar os itens</option><option value="ITENS"${fz?' selected':''}>usar só os itens (tira a do motor)</option></select></p>`}}
+  if(PMAN.some(q=>q.oi===o&&q.wbs===w))h+=`<p class="neg">Há um valor manual antigo (tela anterior) nesta rubrica: ele vale por cima de tudo. <button class="btnx" data-pm="${w}">Remover</button></p>`;
+  // memória mês a mês
+  const mm={};CUS1.forEach(c=>{if(c.OI===o&&c.WBS===w&&c.TIPO==='PROJ'&&!c.RATEIO){(mm[c.MES]||(mm[c.MES]={v:0,o:new Set()})).v+=c.VALOR;mm[c.MES].o.add(c.ORIGEM)}});
+  const memo=ENGR&&ENGR.memo[o+'|'+w]||[];const ms=Object.keys(mm).sort();
+  if(!ms.length)return h+'<p class="muted">Sem projeção nesta rubrica.</p>';
+  h+='<details'+(its.length?'':' open')+'><summary>Memória de cálculo mês a mês</summary><div class="tbl-wrap memo"><table class="ed"><tr><th>Mês</th><th class="n">Valor</th><th>Como</th></tr>'+ms.map(m=>{const t=memo.filter(x=>x.m===m).map(x=>esc(x.t)+' = '+R(x.v));return `<tr><td>${mesLbl(m)}</td><td class="n">${R(mm[m].v)}</td><td class="muted">${t.length?t.join('<br>'):esc([...mm[m].o].join(', '))}</td></tr>`}).join('')+'</table></div></details>';
+  return h}
+// ----- editor de item -----
+function editItem(it0){
+  const novo=!it0.id;const it=clone(Object.assign({id:'i'+Date.now().toString(36),nome:'',modo:'FIXO',valor:null,sw:null,qtd:1,filtro:{ois:[it0.oi],equipes:[],siglas:[],regimes:[],evento:'FTE'},fator:1,ini:null,fim:null,reaj:'NAO',meses:[],obs:''},it0));
+  it.filtro=Object.assign({ois:[it.oi],equipes:[],siglas:[],regimes:[],evento:'FTE'},it.filtro||{});
+  const fut=mesesFut();const eqs=[...new Set(D.hv.map(r=>r.E).filter(Boolean))].sort();const fd=Object.fromEntries(CFG.funcoes.map(f=>[f.S,f.D]));
+  const sig=[...new Set(D.hv.filter(r=>fut.some(m=>+r.F[m]>0)).map(r=>r.S))].sort();
+  let dlg=document.getElementById('dlgItem');if(!dlg){dlg=document.createElement('dialog');dlg.id='dlgItem';document.body.appendChild(dlg)}
+  const opM=(v,lab)=>`<option value="">${lab}</option>`+fut.map(m=>`<option value="${m}"${m===v?' selected':''}>${mesLbl(m)}</option>`).join('');
+  const ms=(id,arr,sel,lab)=>`<select id="${id}" multiple size="6">${arr.map(a=>{const[v,l]=Array.isArray(a)?a:[a,a];return `<option value="${esc(v)}"${sel.includes(v)?' selected':''}>${esc(l)}</option>`}).join('')}</select>`;
+  dlg.innerHTML=`<form method="dialog" class="dlg"><h3>${novo?'Novo item':'Editar item'} · ${it.oi} · ${it.wbs} ${esc(desc[it.wbs]||'')}</h3>
+   <div class="frm"><label>Nome<input id="iN" value="${esc(it.nome)}" placeholder="ex.: AutoCAD, aluguel sala 2, passagens RJ-SP"></label>
+   <label>Software do catálogo<select id="iS"><option value="">— não, vou digitar o valor —</option>${CFG.softwares.map(s=>`<option${s.N===it.sw?' selected':''}>${esc(s.N)}</option>`).join('')}</select></label>
+   <label>Valor unitário (R$)<input id="iV" type="number" step="any" value="${it.valor??''}"></label>
+   <fieldset><legend>Quantidade</legend><label class="chk"><input type="radio" name="iM" value="FIXO"${it.modo!=='HIST'?' checked':''}> fixa</label> <input id="iQ" type="number" step="any" value="${it.qtd??1}" style="width:90px">
+    <label class="chk" style="margin-left:18px"><input type="radio" name="iM" value="HIST"${it.modo==='HIST'?' checked':''}> contada no histograma</label>
+    <div id="iH" class="hgrid"><label>OIs${ms('iO',D.ois,it.filtro.ois)}</label><label>Equipes (vazio = todas)${ms('iE',eqs,it.filtro.equipes)}</label><label>Funções (vazio = todas)${ms('iF',sig.map(s=>[s,s+' – '+(fd[s]||'')]),it.filtro.siglas)}</label>
+     <label>Regime (vazio = todos)${ms('iG',['CLT','PJ','ESTAG'],it.filtro.regimes)}</label><label>Contar ${ii('item.contar')}<select id="iEv">${[['FTE','pessoas no mês'],['ENT','entradas (vaga nova)'],['SAI','saídas'],['ANIV','aniversário de 12 meses']].map(([v,l])=>`<option value="${v}"${it.filtro.evento===v?' selected':''}>${l}</option>`).join('')}</select></label><label>Fator (por pessoa) ${ii('item.fator')}<input id="iX" type="number" step="any" value="${it.fator??1}"></label></div></fieldset>
+   <label>De<select id="iI">${opM(it.ini,'início da projeção')}</select></label><label>Até<select id="iT">${opM(it.fim,'até o fim')}</select></label>
+   <label>Meses de pagamento<input id="iP" value="${(it.meses||[]).join(',')}" placeholder="vazio = todo mês; ex.: 12 ou 1,7"></label>
+   <label>Reajuste<select id="iR">${[['NAO','sem reajuste'],['BENEFICIOS','CCT benefícios'],['SALARIOS','CCT salários']].map(([v,l])=>`<option value="${v}"${it.reaj===v?' selected':''}>${l}</option>`).join('')}</select></label>
+   <label class="w2">Observação / premissa<input id="iB" value="${esc(it.obs||'')}"></label></div>
+   <div id="iPrev" class="prev"></div>
+   <div class="dlgb"><button class="btnx" value="cancel">Cancelar</button> <button class="btnx pri" id="iOk" value="ok">${novo?'Incluir':'Salvar item'}</button></div></form>`;
+  const g=id=>dlg.querySelector('#'+id);const mv=id=>[...g(id).selectedOptions].map(o=>o.value);
+  const ler=()=>{it.nome=g('iN').value.trim();it.sw=g('iS').value||null;it.valor=g('iV').value===''?null:+g('iV').value;it.modo=dlg.querySelector('[name=iM]:checked').value;it.qtd=g('iQ').value===''?0:+g('iQ').value;
+    it.filtro={ois:mv('iO'),equipes:mv('iE'),siglas:mv('iF'),regimes:mv('iG'),evento:g('iEv').value};it.fator=g('iX').value===''?1:+g('iX').value;it.ini=g('iI').value||null;it.fim=g('iT').value||null;
+    it.meses=g('iP').value.split(/[,; ]+/).map(Number).filter(n=>n>=1&&n<=12);it.reaj=g('iR').value;it.obs=g('iB').value.trim()};
+  const prev=()=>{ler();g('iV').disabled=!!it.sw;if(it.sw){const s=CFG.softwares.find(x=>x.N===it.sw);g('iV').value=s?ENG.precoSw(s).toFixed(2):''}g('iH').style.opacity=it.modo==='HIST'?1:.45;g('iQ').disabled=it.modo==='HIST';
+    let t=0;const cel=[];fut.forEach(m=>{const r=ENG.itemMes(CFG,D,it,m);if(!r||!r.v)return;t+=r.v;cel.push(`<span><b>${mesLbl(m)}</b> ${+r.q.toFixed(2)} × ${fmt2.format(r.u)}${r.fr!==1?' × '+r.fr.toFixed(3):''} = ${R(r.v)}</span>`)});
+    g('iPrev').innerHTML=`<div class="pt">Prévia: <b>${R(t)}</b> em ${cel.length} meses</div><div class="pc">${cel.join('')||'<span class="muted">Sem valor no período. Confira valor, quantidade e filtros.</span>'}</div>`};
+  dlg.querySelectorAll('input,select').forEach(x=>{x.oninput=prev;x.onchange=prev});prev();
+  dlg.onclose=()=>{if(dlg.returnValue!=='ok')return;ler();if(!it.nome)it.nome=it.sw||'Item';const i=CFG.itens.findIndex(x=>x.id===it.id);if(i>=0)CFG.itens[i]=it;else CFG.itens.push(it);RUB_AB.add(it.wbs);recalc(true)};
+  dlg.showModal()}
 
 // ---------- Exportar Excel (gerado no navegador, sem biblioteca) ----------
 function xlsxBlob(sheets){
@@ -1049,7 +1402,6 @@ function exportarExcel(){
 }
 document.getElementById('btnXls').onclick=exportarExcel;
 if(!ADMIN){const t=document.getElementById('tabP');if(t)t.style.display='none'}
-document.getElementById('projTodas').onchange=()=>telaProj();
 (async()=>{if(STORE.local&&ADMIN){try{PMAN=await STORE.load()}catch(e){}}pagina()})();
 </script>
 </body>
